@@ -3,7 +3,7 @@ repo_id: maturity-model-autonomous-operations
 type: maturity-model
 name: Autonomous Operations Maturity Model — criteria register
 domain: autonomous-operations
-version: 1.0.0
+version: 1.0.1
 metamodel_version: 1.0.0
 status: stable
 owner: Assessment Models — Autonomous Operations working group
@@ -990,10 +990,12 @@ dimensions:
 relationships:
 - source_id: dea:maturity-autonomous-operations
   target_id: dea:catalog-assessment-tools
-  relationship_type: scored-by
+  relationship_type: scored-by-v2-bands
+  source_relationship_type: scored-by
 - source_id: dea:maturity-autonomous-operations
   target_id: dea:maturity-operations
-  relationship_type: extends
+  relationship_type: derived-from
+  source_relationship_type: extends
 tags:
 - maturity-model
 - autonomous-operations

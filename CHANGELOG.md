@@ -6,6 +6,19 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-13
+
+### Fixed
+
+- Relationship edges in the model register now use only the upstream closed
+  relationship-type vocabulary
+  (`dea-metamodel/assessment-models/vocabulary/relationship-types.yaml`,
+  CR-AM-11 section 17). Edge types `scored-by` and `extends` were outside the
+  vocabulary and are normalised to `scored-by-v2-bands` and `derived-from`
+  respectively; the original value is preserved in `source_relationship_type`.
+  No level, criterion, dimension or scoring content changed.
+
+
 ## [1.0.0] — 2026-11-13
 
 ### Added
