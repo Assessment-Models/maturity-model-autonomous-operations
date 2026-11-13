@@ -4,7 +4,17 @@ Autonomous Operations (AO) maturity and assessment model — the enterprise oper
 
 ## Status
 
-`1.0.0` · stable — canonical upstream scale, OODA stages as model metadata
+`1.0.1` · stable — canonical upstream scale, OODA stages as model metadata
+
+## Repository standard
+
+This repository is the **reference implementation** of the
+[AM-MODEL-REPOSITORY-STANDARD](https://github.com/Assessment-Models/maturity-model-standard)
+(`standard.yaml`, conformance level `structural`), established by
+[CR-AM-ORG-RES-000](https://github.com/Assessment-Models/maturity-model-standard/blob/main/change-requests/CR-AM-ORG-RES-000.md).
+The declaration, structure and version coherence (README ↔ `model.yaml` ↔ `VERSION`
+↔ `standard.yaml`) are validated by the reusable repository-standard conformance
+workflow, alongside the three CI levels below.
 
 ## Placement
 
@@ -36,6 +46,7 @@ per-level effort multipliers 1.0 → 6.0:
 ```
 maturity-model-autonomous-operations/
 ├── model.yaml                       # CR-AM-11 §15 contract handshake
+├── standard.yaml                    # CR-AM-ORG-RES-000 repository-standard declaration
 ├── VERSION
 ├── README.md
 ├── CHANGELOG.md
@@ -50,7 +61,9 @@ maturity-model-autonomous-operations/
 │   └── local_validate.py            # Level 1 validator
 └── .github/workflows/
     ├── local-model-ci.yml           # Level 1
-    └── contract-conformance.yml     # Level 2 (reusable from assessment-ci)
+    ├── contract-conformance.yml     # Level 2 (reusable from assessment-ci)
+    └── repository-standard.yml      # repository-standard conformance
+                                       # (reusable from maturity-model-standard)
 ```
 
 ## CI levels
@@ -67,6 +80,11 @@ maturity-model-autonomous-operations/
 3. **Level 3 — ecosystem CI**: the registration record in
    `Assessment-Models/assessment-registry` is resolved by the ecosystem
    validator on every registry pull request.
+4. **Repository-standard conformance**
+   (`.github/workflows/repository-standard.yml`): reuses
+   `Assessment-Models/maturity-model-standard/.github/workflows/repository-conformance.yml`
+   to validate the repository-standard declaration, structure and version
+   coherence (CR-AM-ORG-RES-000).
 
 ## Provenance
 
