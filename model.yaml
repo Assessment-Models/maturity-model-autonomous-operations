@@ -1,0 +1,29 @@
+id: maturity-model-autonomous-operations
+type: maturity-model
+name: Autonomous Operations Maturity Model
+description: Autonomous Operations (AO) maturity and assessment model — the enterprise operating model
+  in which value streams are instrumented with AI, data and closed-loop control so that agents and autonomous
+  systems learn, self-govern and self-adapt, with intent driving the closed loops. Harvested and cleaned
+  from an industry AO maturity workbook (v1.8.0), gap-filled against 2025-26 industry sources.
+version: 1.0.0
+conformance:
+  contract:
+    id: maturity-scale-contract
+  source:
+    organization: technehub-labs
+    repository: dea-metamodel
+  version: '1.0'
+dependencies:
+- id: dea-maturity-bands-v2
+  reference: v1.0.0
+compatibility:
+  metamodel:
+    minimum: 1.0.0
+    maximum: <2.0.0
+  contracts:
+  - id: maturity-scale-contract
+    version: ^1.0
+  - id: maturity-model-contract
+    version: ^1.0
+  - id: conformance-contract
+    version: ^1.0

@@ -1,0 +1,24 @@
+id: autonomous-operations-worked-example
+model: dea:maturity-autonomous-operations
+version: 1.0.0
+description: Worked scoring example for the Autonomous Operations maturity model. Illustrative only —
+  not a real organisation's assessment. Shows the AO Autonomy Index aggregation, canonical v2 band resolution
+  and the effort-adjusted value.
+aggregated_score: 68
+resolved_band: level-3-systematic
+effort_adjusted_value: 170.0
+criterion_scores:
+- criterion: d1c1
+  score: 60
+- criterion: d2c1
+  score: 72
+- criterion: d3c1
+  score: 68
+- criterion: d4c1
+  score: 74
+- criterion: d5c1
+  score: 66
+- criterion: d6c1
+  score: 68
+aggregation: AO Autonomy Index = weighted mean of dimension scores; each dimension score is the unweighted
+  mean of its criteria. Weights are declared in the model register.

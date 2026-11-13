@@ -1,0 +1,73 @@
+id: dea:scale-autonomous-operations-v1
+version: 1.0.0
+metamodel_version: 1.0.0
+name: Autonomous Operations Maturity Scale (5-level)
+description: Canonical Autonomous Operations maturity scale, five levels (L-0 Absent .. L-4 Autonomous).
+  Sourced from the upstream canonical instance in technehub-labs/dea-metamodel (assessment-models/maturity/scale-examples/autonomous-operations-5level.yaml,
+  version 1.0.0, status stable) — this repository binds that id and version rather than minting a competing
+  one. The model-level OODA stage names (Manual & Reactive .. Self-Improving Ecosystem) are carried as
+  additive metadata on the model register, not as a second level ladder.
+status: stable
+ordering: ascending
+progression:
+  topology: linear
+  function: exponential
+levels:
+- id: L-0
+  ordinal: 0
+  name: Absent
+  definition: 'Capability is not established; no recurring practice or owner.
+
+    '
+  characteristics:
+  - No documented practice.
+  - No assigned accountability.
+  expected_practices: []
+  evidence_expectations: []
+  short_description: Not established
+- id: L-1
+  ordinal: 1
+  name: Initial
+  definition: 'Capability exists in isolated form; success depends on individuals.
+
+    '
+  characteristics:
+  - Person-dependent execution.
+  - Informal knowledge transfer.
+  expected_practices: []
+  evidence_expectations: []
+- id: L-2
+  ordinal: 2
+  name: Defined
+  definition: 'Capability is documented, agreed, and consistently applied within the assessed scope.
+
+    '
+  characteristics:
+  - Shared vocabulary and documented processes.
+  - Governance assigned but inconsistently applied.
+  expected_practices: []
+  evidence_expectations: []
+- id: L-3
+  ordinal: 3
+  name: Automated
+  definition: 'Defined activities are systematically automated; tooling enforces the practice.
+
+    '
+  characteristics:
+  - Tooling-integrated governance.
+  - Decision support embedded in operational systems.
+  expected_practices: []
+  evidence_expectations: []
+- id: L-4
+  ordinal: 4
+  name: Autonomous
+  definition: 'Capability operates autonomously within defined governance constraints; humans intervene
+    only on exception.
+
+    '
+  characteristics:
+  - Decisions executed without routine human intervention.
+  - Governance constraints enforced automatically.
+  - Operational feedback incorporated into execution.
+  expected_practices: []
+  evidence_expectations: []
