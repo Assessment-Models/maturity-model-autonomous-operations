@@ -1,0 +1,139 @@
+# maturity/evaluation.yaml — v2-band evaluation + assessment method
+# Ported from the catalog bundle; bands/multipliers are canonical upstream (dea:maturity-bands-v2).
+
+id: dea:evaluation-autonomous-operations-v1
+version: 1.0.1
+name: Autonomous Operations Evaluation Model
+scale:
+  id: dea:scale-autonomous-operations-v1
+  version: 1.0.0
+score_scheme: dea-maturity-v2
+band_reference:
+  id: dea:maturity-bands-v2
+  version: 1.0.0
+  organization: technehub-labs
+  repository: dea-metamodel
+scoring:
+  mechanism: weighted
+  domain:
+    kind: numeric-0-100
+    minimum: 0
+    maximum: 100
+  level_points:
+    L-0: 20
+    L-1: 45
+    L-2: 70
+    L-3: 88
+    L-4: 100
+  level_band_map:
+  - level: L-0
+    band_id: level-1-emergent
+    band_range:
+    - 0
+    - 20
+    band_name: Emergent
+    effort_multiplier: 1.0
+    legacy_v1_name: Ad Hoc
+    ao_stage: Manual & Reactive
+  - level: L-1
+    band_id: level-2-structured
+    band_range:
+    - 21
+    - 45
+    band_name: Structured
+    effort_multiplier: 1.5
+    legacy_v1_name: Defined
+    ao_stage: Instrumented & Assisted
+  - level: L-2
+    band_id: level-3-systematic
+    band_range:
+    - 46
+    - 70
+    band_name: Systematic
+    effort_multiplier: 2.5
+    legacy_v1_name: Managed
+    ao_stage: Closed-Loop Automated
+  - level: L-3
+    band_id: level-4-adaptive
+    band_range:
+    - 71
+    - 88
+    band_name: Adaptive
+    effort_multiplier: 4.0
+    legacy_v1_name: Quantitatively Managed
+    ao_stage: Goal-Driven Autonomy
+  - level: L-4
+    band_id: level-5-self-optimising
+    band_range:
+    - 89
+    - 100
+    band_name: Self-Optimising
+    effort_multiplier: 6.0
+    legacy_v1_name: Optimising
+    ao_stage: Self-Improving Ecosystem
+  aggregation_rule: '1. Score each criterion on the scale level L-0..L-4 (maturity/scale.yaml); criterion points = the upper
+    edge of that level''s canonical v2 band (level_points: L-0=20, L-1=45, L-2=70, L-3=88, L-4=100). A criterion not assessed
+    scores 0 and lowers evidence-confidence; it never inflates the index. 2. Dimension score = unweighted mean of its criteria.
+    3. AO Autonomy Index = weighted mean of dimension scores (weight_profiles; default = dimension_weights). 4. Resolve the
+    index to a canonical v2 band (dea:maturity-bands-v2); the org band is that band, capped by the weakest-link gate: the
+    org band cannot exceed the band of the lowest IN-SCOPE gating criterion (register criteria with gating: true, 4.1.1-4.1.4);
+    scope-excluded criteria do not gate. 5. Effort-adjusted value = AO Autonomy Index x effort multiplier of the resolved
+    band (matches examples/autonomous-operations-2026.yaml: 68 x 2.5 = 170.0). 6. Report evidence-confidence (High/Medium/Low)
+    alongside the result.'
+  dimension_weights:
+    strategy: 0.2
+    operations: 0.2
+    technology: 0.2
+    data: 0.15
+    party: 0.15
+    culture: 0.1
+  weight_profiles:
+    default:
+      strategy: 0.2
+      operations: 0.2
+      technology: 0.2
+      data: 0.15
+      party: 0.15
+      culture: 0.1
+    comms-provider:
+      strategy: 0.15
+      operations: 0.25
+      technology: 0.2
+      data: 0.15
+      party: 0.15
+      culture: 0.1
+  weight_profile_rule: dimension_weights is the default profile; select a profile in the scope charter (e.g. comms-provider
+    for CSPs, which weights operations higher). Profile choice is recorded in the assessment result for comparability.
+  effort_adjusted_value: 'effort_adjusted_value = AO Autonomy Index x effort_multiplier of the resolved band (matches examples/autonomous-operations-2026.yaml:
+    68 x 2.5 = 170.0)'
+  level_resolution_inputs:
+  - criterion-scores
+  - mandatory-gating-criteria
+  - evidence-confidence
+  - ecosystem-participation
+  notes: Ported from the catalog bundle evaluation.yaml and re-based onto the canonical v2 bands (non-linear widths, multipliers
+    1.0-6.0, owned by dea:maturity-bands-v2 in technehub-labs/dea-metamodel). The frozen v1-alpha catalog lineage keeps its
+    v1 bands; this repo is the canonical v2 home.
+assessment:
+  subject: The organization's operating model across its value streams; assessable per value stream/scenario and rolled up
+    org-wide.
+  inputs_required:
+  - 'Scope charter: value streams, services, domains, and scenarios in scope; exclusions stated'
+  - 'Evidence pack per criterion: artifacts, metrics, logs, audit-trail samples, dashboards, policies, runbooks'
+  - Stakeholder interviews (ops, engineering, product, security, finance, HR) and party feedback
+  - 'Telemetry access: observability platform, agent action logs, CI/CD and deployment metrics, SLO dashboards'
+  - Prior assessments / baseline score and target level; roadmap
+  method:
+  - '1. Scope & plan: define value streams/scenarios; select criteria (all by default; gating criteria mandatory)'
+  - 2. Collect evidence against each criterion; an independent assessor verifies a sample (not self-reported only)
+  - 3. Score each criterion on the 5-level ladder (progression axes in levels[].progression); record confidence per criterion
+  - 4. Aggregate per the scoring block (dimension means → AO Autonomy Index → band → weakest-link gate)
+  - '5. Report: AO Autonomy Index, level, per-dimension profile, effort-adjusted value, gaps, roadmap to next level'
+  - 6. Re-assess on a fixed cadence (quarterly recommended) or after major loop/agent changes
+  assessor_independence: Evidence is sampled and verified by an assessor independent of the team that produced it; self-attestation
+    alone caps confidence at Medium.
+  confidence_levels:
+    High: independently verified evidence for >=80% of criteria in the dimension
+    Medium: verified evidence for 50-79%
+    Low: <50% or self-attested only
+  cadence: quarterly recommended; event-driven after major closed-loop or agent deployments
