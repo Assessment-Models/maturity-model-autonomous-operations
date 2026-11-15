@@ -1,0 +1,25 @@
+# Worked example — weakest-link gate under canonical v2 bands.
+id: example-gate-v2
+model: dea:maturity-autonomous-operations
+version: 1.0.1
+scope: "Two value streams: order-to-activate, trouble-to-resolve; weight profile: default"
+criterion_levels:
+  "4.1.1": 2   # Observe (detect)      -> 70 pts
+  "4.1.2": 1   # Orient (root-cause)   -> 45 pts   <- gating spine, lowest
+  "4.1.3": 2   # Decide                -> 70 pts
+  "4.1.4": 2   # Act                   -> 70 pts
+  "4.2.5": 2
+  "3.3.8": 2
+  "2.4.7": 1
+  "3.1.8": 1
+computation:
+  dimension_mean_operations: 63.75
+  ao_autonomy_index: 64               # illustrative weighted mean across dimensions
+  band_from_index: level-3-systematic # 46-70
+  gating_min_level: "L-1"
+  gating_band: level-2-structured     # 21-45
+  org_band: level-2-structured        # weakest-link gate caps the band
+  ao_stage: "Instrumented & Assisted" # ao_stage_by_ordinal[1]
+  effort_adjusted_value: "64 * 1.5 = 96.0"
+interpretation: "Index lands in Systematic, but root-cause (Orient) is still human-led, so the org band is capped at Structured — the gate makes the real blocker visible."
+evidence_confidence: Medium

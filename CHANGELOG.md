@@ -6,6 +6,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- README rebuilt as a model overview and assessment guide (14-section architecture per the
+  README review): model-first explanation, assessment hierarchy diagram, level interpretation
+  table, assessment lifecycle, evidence traceability chain, scoring mechanics with resolved
+  band-width and effort-multiplier semantics, worked examples, ecosystem positioning, and
+  repository mechanics moved to the end.
+- `maturity/evaluation.yaml` (v2-band scoring + assessment method), `maturity/assessment-questionnaire.yaml`
+  (157 criteria), `docs/` (GOVERNANCE, REPO-STANDARD, ARCHITECTURE, RECONCILIATION, EXTRACTION-CHECKLIST),
+  `examples/assessment-example-gate.yaml`, `examples/benchmark-weight-profiles.yaml`.
+- Level 1 validator extended to cover the new assets.
+
 ## [1.0.1] - 2026-11-13
 
 ### Fixed

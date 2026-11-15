@@ -120,9 +120,33 @@ else:
                     f"effort_multiplier ({expected})"
                 )
 
+# 6 — reconciliation/enrichment assets (evaluation, questionnaire, docs, extra examples)
+evaluation = load("maturity/evaluation.yaml")
+if evaluation.get("id") != "dea:evaluation-autonomous-operations-v1":
+    errors.append("evaluation: unexpected id")
+sc = evaluation.get("scoring") or {}
+if abs(sum((sc.get("dimension_weights") or {}).values()) - 1.0) > 1e-9:
+    errors.append("evaluation: dimension_weights do not sum to 1")
+for pname, pw in (sc.get("weight_profiles") or {}).items():
+    if abs(sum(pw.values()) - 1.0) > 1e-9:
+        errors.append(f"evaluation: weight profile {pname} does not sum to 1")
+lp = sc.get("level_points") or {}
+if sorted(lp) != ["L-0", "L-1", "L-2", "L-3", "L-4"]:
+    errors.append("evaluation: level_points must cover L-0..L-4")
+questionnaire = load("maturity/assessment-questionnaire.yaml")
+qids = [c["id"] for sec in questionnaire.get("sections", []) for c in sec.get("criteria", [])]
+reg_ids = [str(c["id"]) for d in register.get("dimensions", []) for sd in d.get("sub_dimensions", []) for c in sd.get("criteria", [])]
+if sorted(qids) != sorted(reg_ids):
+    errors.append("questionnaire criteria do not match the register criteria exactly")
+for rel in ("docs/GOVERNANCE.md", "docs/REPO-STANDARD.md", "docs/ARCHITECTURE.md",
+            "docs/EXTRACTION-CHECKLIST.md", "docs/RECONCILIATION.md",
+            "examples/assessment-example-gate.yaml", "examples/benchmark-weight-profiles.yaml"):
+    if not (ROOT / rel).is_file():
+        errors.append(f"missing reconciled asset: {rel}")
+
 if errors:
     print(f"FAIL — {len(errors)} error(s):")
     for e in errors:
         print(f"  - {e}")
     sys.exit(1)
-print(f"OK — maturity-model-autonomous-operations: manifest + scale ({len(levels_actual)} levels) + register + example valid")
+print(f"OK — maturity-model-autonomous-operations: manifest + scale ({len(levels_actual)} levels) + register + example + evaluation/questionnaire/docs valid")
