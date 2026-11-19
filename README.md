@@ -1,248 +1,127 @@
 # Autonomous Operations Maturity Model
 
-**AOMM** is an enterprise maturity and assessment model for **Autonomous Operations (AO)**: 
-the operating model in which an organization's value streams are instrumented with AI, data 
-and **closed-loop control**, so that agents and autonomous systems **learn, self-govern and 
-self-adapt** : with **intent and goals driving the closed loops**
-(Observe → Orient → Decide → Act, or alternate variants of decision models) — progressively 
-shifting the burden of decisions and execution from humans to machines, under designed human 
-oversight.
+**`dea:maturity-autonomous-operations`** · release 1.0.1 (stable) · MIT license
 
-> **Model release:** `1.0.1` · **stable** · scored on the canonical v2 bands
-> (`dea:maturity-bands-v2` v1.0.0, `technehub-labs/dea-metamodel`).
-> **Repository-standard conformance:** this repository is the reference implementation of
-> `docs/REPO-STANDARD.md` (CR-AM-12). Model release status and repository conformance are
-> separate labels: the *model* is stable; the *repository* conforms to the ecosystem standard.
+This model measures how mature an organization is at **running** Autonomous Operations: an operating model in which value streams are instrumented with AI, data, and closed-loop control, so that agents and autonomous systems progressively take over routine cognitive work under designed human oversight.
+
+It assesses the **operating model, not the technology count**. Two organizations with identical AI tooling can score very differently, because the model scores governance, evidence, party experience, culture, and data as heavily as the automation itself.
 
 ---
 
-## 1. Overview
+## Who this is for
 
-The model assesses an organization's **ability to design, govern, operate and continuously
-improve autonomous operations** across its value streams — not the quantity of AI technology
-deployed. It covers six dimensions (Party, Strategy, Technology, Operations, Culture, Data),
-32 sub-dimensions and **157 assessment criteria**, each scored on a five-level scale and
-aggregated into an **AO Autonomy Index (0–100)** resolved to a maturity band.
+- **Operations and technology leaders** planning closed-loop automation and wanting an honest baseline before investing.
+- **Transformation offices** that need to track AO progress quarter over quarter with a repeatable instrument.
+- **Assessors and auditors** who need evidence-based, traceable scoring rather than opinion.
 
-Machine-readable artifacts are authoritative; this README explains them (ADR-AM-12-04):
+**Not for:** general AI-adoption strategy, task automation tooling, or digital transformation at large. Those are covered by sibling models in this organization (see [When to use a sibling model](#when-to-use-a-sibling-model)).
 
-| Artifact | Role |
-|---|---|
-| `maturity/model/autonomous-operations.yaml` | Criteria register (dimensions → sub-dimensions → criteria) — **authoritative** |
-| `maturity/scale.yaml` | The 5-level maturity scale (bound to the canonical upstream instance) |
-| `maturity/evaluation.yaml` | Scoring model + assessment method |
-| `maturity/assessment-questionnaire.yaml` | Assessment instrument (one entry per criterion) |
-| `model.yaml` | Repository manifest + contract handshake (CR-AM-11 §15) |
+## What it assesses
 
-## 2. Why autonomous operations maturity matters
+Six dimensions, 32 sub-dimensions, 157 criteria. Each criterion is scored L-0 to L-4 against defined anchors, and evidence is required for every score.
 
-Modern operations are too fast, too distributed and too data-heavy for human-paced, step-by-step
-control to remain the default. Value is lost in the gaps between detecting an event, deciding
-what to do, and doing it. AO closes those gaps with instrumented, goal-driven feedback loops —
-converting operations from a cost center into a self-correcting, value-generating system.
-Expected outcomes: faster and more predictable service delivery, lower operational cost, better
-customer and party experience, safer autonomous action (guardrails + audit), and measurable,
-ecosystem-visible value.
-
-## 3. Model purpose and scope
-
-**Subject vs. maturity.** The model assesses the *organization's maturity at realizing*
-autonomous operations — its capabilities, governance and operating practices — not the abstract
-concept itself.
-
-**In scope:** any organization, operating environment or value stream (B2B, B2C, B2B2X, internal
-operations; comms providers, digital service providers, enterprises, industry verticals) —
-assessed per value stream/scenario and rolled up organization-wide.
-
-**Out of scope / boundaries:** this is a whole-operating-model model. Adjacent subjects — digital
-transformation strategy, general AI adoption, task automation, or narrower domain-specific
-autonomy ladders for individual technology domains — are covered by sibling models in the
-ecosystem (see §12). AO is not "more of the same": it is the operating model *in which* those
-domain capabilities compose into closed loops.
-
-## 4. Conceptual foundations
-
-- **Automation ≠ autonomy.** Automation executes predefined rules faster. Autonomy means the
-  system perceives, orients, decides and acts toward a goal within governance constraints.
-- **Closed-loop control (OODA).** Every assessed loop is Observe → Orient → Decide → Act.
-  Progression levels are defined by *who owns each OODA stage* (see §6).
-- **Intent/goals drive the loops.** Humans (or partner systems) express intent; the system
-  decomposes and fulfils it. Intent is the "what", not the "how".
-- **Agents.** Software agents are production assets with a lifecycle (onboard, version, monitor,
-  roll back, kill-switch) and policy guardrails; every autonomous action is logged and auditable.
-- **Human–machine working model.** Humans set intent and policy, oversee, audit and handle
-  exceptions; machines do the routine cognitive work. Oversight is designed, not improvised.
-- **Learning.** Loops feed back into behavior: the system learns and self-adapts continuously.
-
-## 5. Model architecture
-
-Assessment hierarchy (actual identifiers from the register):
-
-```mermaid
-flowchart TB
-    M["Autonomous Operations Maturity Assessment"] --> D1["1 Party (7 sub-dimensions)"]
-    M --> D2["2 Strategy (5 sub-dimensions)"]
-    M --> D3["3 Technology (4 sub-dimensions)"]
-    M --> D4["4 Operations (6 sub-dimensions)"]
-    M --> D5["5 Culture (5 sub-dimensions)"]
-    M --> D6["6 Data (5 sub-dimensions)"]
-    D1 --> SD["32 sub-dimensions"]
-    D2 --> SD
-    D3 --> SD
-    D4 --> SD
-    D5 --> SD
-    D6 --> SD
-    SD --> C["157 criteria (each scored L-0..L-4)"]
-    C --> R["Dimension results → AO Autonomy Index → maturity band"]
-```
-
-| Dimension | Focus | Sub-dims | Criteria |
+| Dimension | What it measures | Sub-dims | Criteria |
 |---|---|---|---|
-| 1 Party | Customer/partner/employee/thing engagement, experience, insight, trust | 7 | 41 |
+| 1 Party | Customer, partner, employee, and smart-things engagement, experience, insight, and trust | 7 | 41 |
 | 2 Strategy | Value model, business architecture, financial management, governance, sustainability | 5 | 22 |
-| 3 Technology | Autonomy capabilities, architecture, resources, lifecycle | 4 | 22 |
+| 3 Technology | Autonomy capabilities, architecture, resources, agent lifecycle | 4 | 22 |
 | 4 Operations | Closed-loop flows: anomaly, assurance, complaints, value uplift, net-zero, fulfillment | 6 | 25 |
 | 5 Culture | Innovation, quality, culture management, alignment, workplace enablement | 5 | 19 |
-| 6 Data | Lifecycle, quality, security, governance, value realization | 5 | 26 |
+| 6 Data | Data lifecycle, quality, security, governance, value realization | 5 | 26 |
 
-Criteria marked `gating: true` (the closed-loop spine 4.1.1–4.1.4: detect → root-cause → decide →
-act) cap the organization's band — a loop that cannot act cannot make the organization autonomous.
+**The grain of the model.** Every criterion names a specific, observable capability. A real example from the Party dimension:
 
-## 6. Maturity levels
+> **1.1.1 Predictive Engagement.** The organization enables Predictive Engagement by using intelligent automation and customer insights (such as behavioral data and user profiles) to proactively anticipate customer needs and dynamically determine the right target, channel, and timing of engagement.
 
-The scale (`maturity/scale.yaml`) has five levels L-0…L-4; scoring resolves the index to the
-**canonical v2 bands** (`dea:maturity-bands-v2`). Each level carries an AO stage name
-(`ao_stage_by_ordinal` in the register) describing the ambition it represents.
+And the corresponding questionnaire item asks: *"To what extent is Predictive Engagement in place within the assessment scope?"*, with observable behavior, requested evidence (CX analytics and NPS/CSAT exports, channel telemetry and consent records, campaign performance data, and more), and the L-0 to L-4 level anchors.
 
-| Scale level | AO stage | Canonical band (v2) | Score range (inclusive) | Integer scores in range | Effort multiplier |
-|---|---|---|---|---|---|
-| L-0 Absent | Manual & Reactive | `level-1-emergent` Emergent | 0–20 | 21 | 1.0× |
-| L-1 Initial | Instrumented & Assisted | `level-2-structured` Structured | 21–45 | 25 | 1.5× |
-| L-2 Defined | Closed-Loop Automated | `level-3-systematic` Systematic | 46–70 | 25 | 2.5× |
-| L-3 Automated | Goal-Driven Autonomy | `level-4-adaptive` Adaptive | 71–88 | 18 | 4.0× |
-| L-4 Autonomous | Self-Improving Ecosystem | `level-5-self-optimising` Self-Optimising | 89–100 | 12 | 6.0× |
+## The five levels
 
-*Width note (resolved):* ranges are **inclusive**, so "width" = number of integer scores =
-`hi − lo + 1` (21/25/25/18/12); the bands partition 0–100 exactly. *Effort multiplier (resolved):*
-it is a **planning/cost signal** — the relative organizational effort of earning one point within
-that band, normalised to the lowest band = 1.0× (superlinear, reflecting diminishing returns).
-It is **not** a score multiplier; the effort-adjusted value is `index × multiplier of the resolved
-band` (see §9).
+Progression is defined by **who owns each OODA stage** (Observe, Orient, Decide, Act):
 
-**What changes between levels** (OODA ownership is the progression axis):
-
-| Level | Operating behavior | Governance | Human role | Loop closure |
+| Level | Name | Band (range) | AO stage | Who decides and acts |
 |---|---|---|---|---|
-| L-0 Manual & Reactive | Human-driven, reactive; no feedback loop | None | Humans perform every OODA stage | Open |
-| L-1 Instrumented & Assisted | Telemetry exists; tools assist; humans decide/approve | Documented, partial enforcement | Humans orient/decide; machines observe & run scripted actions | Partial |
-| L-2 Closed-Loop Automated | Loops run across most in-scope flows; SLOs/error budgets enforced | Formal, tooling-enabled | Humans set goals/SLOs, handle exceptions; system decides within rules | Closed, measured |
-| L-3 Goal-Driven Autonomy | Agents decide/act within guardrails; multi-agent coordination; simulation-before-act | Guardrails + audit enforced automatically | Humans set intent/policy, oversee, audit | Closed autonomous |
-| L-4 Self-Improving Ecosystem | Self-learning loops across the ecosystem; intent negotiated with partners | Self-governing, continuously improving | Humans govern, set ultimate values, audit | Self-learning, ecosystem-wide |
+| L-0 | Absent | 1: Emergent (0-20) | Manual & Reactive | Humans perform every OODA stage |
+| L-1 | Initial | 2: Structured (21-45) | Instrumented & Assisted | Machines observe; humans orient and decide |
+| L-2 | Defined | 3: Systematic (46-70) | Closed-Loop Automated | Loops decide within rules; humans set goals and handle exceptions |
+| L-3 | Automated | 4: Adaptive (71-88) | Goal-Driven Autonomy | Agents decide and act within guardrails; humans set intent and audit |
+| L-4 | Autonomous | 5: Self-Optimising (89-100) | Self-Improving Ecosystem | Loops self-learn ecosystem-wide; humans govern values and audit |
 
-## 7. Assessment methodology
+**Numbering convention.** Scale levels count from zero (L-0 to L-4, the capability ladder you score) while the canonical bands they resolve to count from one (level-1 to level-5, the band ladder the index lands in). The ladders are offset by one: L-0 resolves to band 1, L-2 to band 3. When reading or writing results, always pair them ("L-2, band 3 Systematic"). Renumbering the scale levels is not a local edit: the scale binds the canonical instance owned upstream in `technehub-labs/dea-metamodel`, and level semantics change only through a change request (see Governance below). A change request proposing to resolve the offset by renumbering the scale to L-0 plus L-1..L-5, aligned one-to-one with the bands, is filed upstream ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)); until the ecosystem ratifies and releases it, the pairing convention above applies.
 
-```mermaid
-flowchart LR
-    A[Initiate assessment] --> B[Define scope]
-    B --> C[Select model version + weight profile]
-    C --> D[Identify assessment subjects]
-    D --> E[Collect evidence]
-    E --> F[Validate evidence]
-    F --> G[Map evidence to criteria]
-    G --> H[Evaluate criteria L-0..L-4]
-    H --> I[Calculate scores]
-    I --> J[Determine maturity band]
-    J --> K[Review and approve results]
-    K --> L[Publish assessment report]
-    L --> M[Define improvement actions]
-    M --> N[Monitor progress]
-    N --> O[Reassess]
-```
+## How scoring works
 
-**Roles:** assessor (independent of the team that produced the evidence — self-attestation alone
-caps confidence at Medium), assessment subject, evidence owner, reviewer. Required inputs: scope
-charter, evidence pack per criterion, stakeholder interviews, telemetry access, baseline/target,
-roadmap. Cadence: quarterly recommended, or event-driven after major loop/agent changes. Full
-method: `maturity/evaluation.yaml` → `assessment`; instrument: `maturity/assessment-questionnaire.yaml`.
+1. Each of the 157 criteria is scored L-0 to L-4; the level maps to points (L-0 = 20, L-1 = 45, L-2 = 70, L-3 = 88, L-4 = 100).
+2. Dimension score = mean of its criteria. **AO Autonomy Index (0-100)** = weighted mean of dimensions (weights are declared in `maturity/evaluation.yaml`; the default profile weights Strategy, Operations, and Technology at 0.20 each, Data and Party at 0.15, Culture at 0.10; a `comms-provider` profile weights Operations higher).
+3. The index resolves to a maturity band.
+4. **Weakest-link gate:** the organization's band cannot exceed the band of its lowest in-scope gating criterion. The four gating criteria (4.1.1 to 4.1.4) are the closed-loop spine: detect, root-cause, decide, act. A loop that cannot act cannot make the organization autonomous.
+5. **Effort-adjusted value** = index × effort multiplier of the resolved band (1.0× to 6.0×), a planning signal for portfolio decisions, not a score multiplier.
 
-## 8. Evidence framework
+A full walkthrough with real numbers: [docs/WORKED-EXAMPLE.md](docs/WORKED-EXAMPLE.md).
 
-Every determination must be traceable back to evidence:
+## Run an assessment
 
-```mermaid
-flowchart LR
-    ES[Evidence source] --> EI[Evidence item] --> EV[Evidence validation] --> CM[Criterion mapping]
-    CM --> CE[Criterion evaluation + rationale] --> SD[Score determination] --> CR[Capability result]
-    CR --> DR[Domain result] --> OM[Overall maturity determination]
-```
+- Define a **scope charter**: which value streams and scenarios, which weight profile, what is excluded.
+- Gather an **evidence pack** per criterion; an independent assessor verifies a sample. Self-attestation alone caps confidence at Medium.
+- Score against the anchors, aggregate, apply the gate, and publish the report: index, band, per-dimension profile, gaps, and roadmap.
+- Reassess quarterly, or after major closed-loop or agent changes.
 
-Evidence types per dimension are listed in the questionnaire (`evidence_to_request`); provenance,
-validation and sufficiency are recorded per item; confidence levels (High ≥80% independently
-verified, Medium 50–79%, Low <50%) are reported with every result.
+Start small: [docs/QUICKSTART.md](docs/QUICKSTART.md) walks a 60-minute pilot assessment on a single value stream.
 
-## 9. Scoring and maturity determination
+For a narrative tour of the dimensions and what each level looks like in practice: [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.md).
 
-1. **What is scored:** each of the 157 criteria, on scale level L-0…L-4 → points = band upper edge
-   (L-0=20, L-1=45, L-2=70, L-3=88, L-4=100). Unassessed criteria score 0 and lower confidence.
-2. **Aggregation:** dimension score = mean of its criteria → **AO Autonomy Index** = weighted mean
-   of dimension scores. Weights are declared in `maturity/evaluation.yaml`
-   (`dimension_weights` = default profile; `weight_profiles` adds `comms-provider`); the profile is
-   chosen in the scope charter and recorded in the result.
-3. **Band determination:** the index resolves to a canonical v2 band (§6). **Weakest-link gate:** the
-   org band cannot exceed the band of the lowest *in-scope* gating criterion (4.1.1–4.1.4);
-   scope-excluded criteria do not gate.
-4. **Effort-adjusted value** = index × effort multiplier of the resolved band (diminishing returns
-   made explicit for portfolio decisions).
+## Documentation map
 
-## 10. Worked example
+| Document | What it gives you |
+|---|---|
+| [docs/QUICKSTART.md](docs/QUICKSTART.md) | Run a 60-minute pilot assessment on one value stream |
+| [docs/MODEL-GUIDE.md](docs/MODEL-GUIDE.md) | Dimension-by-dimension narrative, level anchors, glossary |
+| [docs/WORKED-EXAMPLE.md](docs/WORKED-EXAMPLE.md) | End-to-end scoring walkthrough, including the weakest-link gate |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Every term used in the model, defined in plain language |
+| `maturity/model/autonomous-operations.yaml` | The criteria register (authoritative) |
+| `maturity/scale.yaml` | The five-level scale (authoritative) |
+| `maturity/evaluation.yaml` | Scoring model and assessment method (authoritative) |
+| `maturity/assessment-questionnaire.yaml` | The instrument: one entry per criterion |
+| `docs/ARCHITECTURE.md` | Repository and ecosystem architecture |
+| `docs/REPO-STANDARD.md`, `docs/GOVERNANCE.md` | Repository conformance and governance (maintainers) |
 
-See `examples/autonomous-operations-2026.yaml`: dimension scores 60/72/68/74/66/68 →
-**AO Autonomy Index 68 → band `level-3-systematic` (Systematic, 46–70) → effort-adjusted value
-68 × 2.5 = 170.0**. See `examples/assessment-example-gate.yaml` for the weakest-link gate capping an
-index-64 result at `level-2-structured` because root-cause (Orient) is still human-led.
+## Key terms
 
-## 11. Using assessment results
+All terms, including scoring and ecosystem vocabulary, are defined in [docs/GLOSSARY.md](docs/GLOSSARY.md). The essentials:
 
-The assessment report contains: AO Autonomy Index, resolved band + AO stage, per-dimension profile,
-per-criterion levels with evidence references, confidence, weight profile, gate outcome,
-effort-adjusted value, gaps, and a roadmap to the next band. Typical use: gap analysis →
-prioritized interventions (close the gating loop first) → monitor → reassess on cadence.
+- **OODA loop:** Observe, Orient, Decide, Act; the closed-loop control pattern the model uses as its progression axis.
+- **Gating criterion:** one of the four closed-loop spine criteria (4.1.1 to 4.1.4) that caps the organization's band.
+- **Band:** the resolved maturity band (Emergent, Structured, Systematic, Adaptive, Self-Optimising), canonically numbered level-1 to level-5; scale levels count from zero, so always pair level and band when reading results.
+- **Effort-adjusted value:** index × band effort multiplier; expresses that higher bands cost disproportionately more per point.
+- **Confidence:** High (at least 80% of criteria independently verified), Medium (50-79%), Low (below 50% or self-attested only).
 
-## 12. Ecosystem integration
+## When to use a sibling model
 
-Independent model, not a universal replacement. Sibling assets in Assessment-Models: the Digital
-Transformation, Technology, Operations and Services-Delivery models. Relationships are declared
-in the register's `relationships` (upstream closed vocabulary) and registered in
-`assessment-registry`. Relationships do **not** imply score equivalence or automatic evidence
-acceptance; interoperability goes through explicit touchpoints and pinned contract handshakes.
+| If your question is about... | Use |
+|---|---|
+| The whole operating model for autonomous, closed-loop operations | **This model** |
+| Digital transformation strategy or AI adoption at large | The Digital Transformation model |
+| Technology capability and architecture in isolation | The Technology model |
+| Operations and service delivery short of closed-loop autonomy | The Operations and Services-Delivery models |
 
-## 13. Repository architecture
+Relationships between models are declared in the register and the assessment registry. They do not imply score equivalence.
 
-```
+## Repository layout
+
+```text
 maturity-model-autonomous-operations/
 ├── model.yaml · VERSION · CHANGELOG.md · CONTRIBUTING.md · LICENSE · README.md
 ├── maturity/  scale.yaml · evaluation.yaml · assessment-questionnaire.yaml · model/autonomous-operations.yaml
-├── docs/      GOVERNANCE · REPO-STANDARD · ARCHITECTURE · RECONCILIATION · checklists
+├── docs/      QUICKSTART.md · MODEL-GUIDE.md · WORKED-EXAMPLE.md · ARCHITECTURE · GOVERNANCE · REPO-STANDARD · RECONCILIATION · checklists
 ├── examples/  worked examples with computable v2-band scoring math
 ├── scripts/local_validate.py
-└── .github/workflows/  local-model-ci.yml (Level 1) · contract-conformance.yml (Level 2, pinned to assessment-ci)
+└── .github/workflows/  local-model-ci.yml · contract-conformance.yml
 ```
 
-**CI levels:** Level 1 local validation (`scripts/local_validate.py`) on every PR · Level 2
-contract conformance via `Assessment-Models/assessment-ci` at an immutable `dea-metamodel` pin ·
-Level 3 registry resolution (`resolve.py <id> --check`). The YAML artifacts are authoritative;
-documentation explains them.
+The YAML artifacts are authoritative; documentation explains them. CI validates the model on every PR (Level 1), checks contract conformance against a pinned metamodel (Level 2), and resolves the registry identity (Level 3).
 
-## 14. Governance, provenance and versioning
+## Governance, lineage, and versioning
 
-- **Lineage:** criteria register harvested and cleaned from an industry AO maturity workbook
-  v1.8.0 (source md5 recorded in the catalog lineage), carried verbatim into this repo
-  (157/157, zero diffs — see `docs/RECONCILIATION.md`); level semantics from the canonical
-  upstream scale; OODA stage names are additive model metadata. Inherited vs. adapted vs. newly
-  introduced content is recorded per criterion (`added_in_revamp`, `renumbered_from`, …) and in
-  the catalog proposal 0002 gap register.
-- **Ownership:** Assessment-Models org; this repo is independently versioned (SemVer, releases as
-  `vX.Y.Z` tags). Change control: PR + rationale + CHANGELOG; never alter level semantics without
-  a change request; canonical bands/contracts are owned upstream — referenced, never restated.
-- **Version:** `1.0.1` stable (see `VERSION`, `CHANGELOG.md`).
+- **Lineage:** the criteria register was harvested from an industry AO maturity workbook (v1.8.0) and carried verbatim (157/157 criteria, zero diffs; see `docs/RECONCILIATION.md`), then gap-filled against 2025-26 industry sources. Inherited, adapted, and new content is recorded per criterion.
+- **Ownership:** the Assessment-Models organization; this repository is independently versioned (SemVer, released as `vX.Y.Z` tags). Level semantics change only through a change request; canonical bands and contracts are owned upstream and referenced, never restated.
 - **License:** MIT.
