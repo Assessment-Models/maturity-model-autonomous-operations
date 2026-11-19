@@ -14,7 +14,7 @@ flowchart LR
   A --> O
 ```
 
-Maturity levels are defined by **who owns each OODA stage**. At L-0 humans do all four. At L-4 the loop self-learns and humans govern values. Everything else in the model, all 157 criteria, exists to make that shift safe, governed, observable, and valuable.
+Maturity levels are defined by **who owns each OODA stage**. At L-1 humans do all four. At L-5 the loop self-learns and humans govern values. Everything else in the model, all 157 criteria, exists to make that shift safe, governed, observable, and valuable.
 
 The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's band cannot exceed the band of your lowest one. This is deliberate. An organization that detects anomalies beautifully but still needs a human to decide and act everything is, in AO terms, Instrumented & Assisted, whatever its averages say.
 
@@ -22,13 +22,14 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 | Level | Name | Band | Definition (from the scale) | What it looks like on the floor |
 |---|---|---|---|---|
-| L-0 | Absent | 1: Emergent | No recurring practice or owner | People improvise; nothing survives the person who does it |
-| L-1 | Initial | 2: Structured | Isolated; success depends on individuals | A hero with scripts and dashboards; no shared vocabulary |
-| L-2 | Defined | 3: Systematic | Documented, agreed, consistently applied in scope | Runbooks people actually follow; governance exists but is enforced by people |
-| L-3 | Automated | 4: Adaptive | Tooling enforces the practice | The pipeline rejects non-compliant changes; decision support is embedded in systems |
-| L-4 | Autonomous | 5: Self-Optimising | Executes within governance constraints; humans intervene on exception | Agents act inside guardrails, every action logged and auditable, feedback changes behavior |
+| L-0 | Not Assessed | — | No evidence examined; 0 points; not a capability level | Not assessed; lowers evidence confidence; never inflates the index |
+| L-1 | Absent | 1: Emergent | No recurring practice or owner | People improvise; nothing survives the person who does it |
+| L-2 | Initial | 2: Structured | Isolated; success depends on individuals | A hero with scripts and dashboards; no shared vocabulary |
+| L-3 | Defined | 3: Systematic | Documented, agreed, consistently applied in scope | Runbooks people actually follow; governance exists but is enforced by people |
+| L-4 | Automated | 4: Adaptive | Tooling enforces the practice | The pipeline rejects non-compliant changes; decision support is embedded in systems |
+| L-5 | Autonomous | 5: Self-Optimising | Executes within governance constraints; humans intervene on exception | Agents act inside guardrails, every action logged and auditable, feedback changes behavior |
 
-**Numbering note:** scale levels (what you score) count from zero; canonical bands (what the index resolves to) count from one. A result is always a pair ("L-2, band 3 Systematic"); carry both and the offset never bites.
+**Numbering note:** scale levels (what you score) align one-to-one with canonical bands (what the index resolves to): L-3 sits in band 3 Systematic. L-0 is Not Assessed: no evidence examined, 0 points, not a capability level. Results recorded before the renumbering ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)) keep their index and band; only the per-criterion level label shifts by one.
 
 ## Dimension 1: Party (7 sub-dimensions, 41 criteria)
 
@@ -42,7 +43,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 > **1.7.2 Self-Healing:** sensors monitor equipment health, predict failures, and trigger corrective actions automatically to minimize downtime.
 
-**L-0 vs. L-4:** at L-0, engagement is reactive and manual; offers are built per segment, if at all, and smart things phone home to a human. At L-4, engagement anticipates need across channels, journeys self-optimize from real-time quality-of-experience data, and machines onboard, heal, and adapt with human involvement only on exception.
+**L-1 vs. L-5:** at L-1, engagement is reactive and manual; offers are built per segment, if at all, and smart things phone home to a human. At L-5, engagement anticipates need across channels, journeys self-optimize from real-time quality-of-experience data, and machines onboard, heal, and adapt with human involvement only on exception.
 
 **What moves the score:** closed-loop personalization with consent records; autonomous support resolution at or above agent-assisted quality; machine-to-machine onboarding and healing with safety protocols.
 
@@ -66,7 +67,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **What that means concretely:** an agent in this model is a production asset with a lifecycle: onboard, version, monitor, roll back, kill-switch. Architecture criteria cover whether loops integrate with observability and data platforms rather than bolting on. Resource criteria cover whether autonomy work has owners and funding. Lifecycle criteria cover whether agents are versioned and auditable like any other production system.
 
-**L-0 vs. L-4:** at L-0, automation is scripts on a scheduler with no owner. At L-4, multi-agent coordination runs with simulation-before-act for consequential decisions, and every autonomous action is logged and auditable.
+**L-1 vs. L-5:** at L-1, automation is scripts on a scheduler with no owner. At L-5, multi-agent coordination runs with simulation-before-act for consequential decisions, and every autonomous action is logged and auditable.
 
 ## Dimension 4: Operations (6 sub-dimensions, 25 criteria)
 

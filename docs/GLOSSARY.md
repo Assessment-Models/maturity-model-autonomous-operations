@@ -15,23 +15,23 @@ Plain-language definitions for every term used in this repository. Where a term 
 
 - **Dimension:** the top level of the assessment hierarchy. Six exist: Party, Strategy, Technology, Operations, Culture, Data.
 - **Sub-dimension:** the 32 mid-level groupings inside dimensions.
-- **Criterion:** the atomic assessed capability (157 total), each scored L-0 to L-4 with evidence. Identified by a dotted ID, e.g. 2.4.7.
+- **Criterion:** the atomic assessed capability (157 total), each scored on five capability levels, L-1 to L-5, with evidence (or L-0, Not Assessed). Identified by a dotted ID, e.g. 2.4.7.
 - **Criteria register:** `maturity/model/autonomous-operations.yaml`; the authoritative structure of dimensions, sub-dimensions, and criteria.
 - **Questionnaire:** the assessment instrument (`maturity/assessment-questionnaire.yaml`); one entry per criterion with the question, `what_to_observe`, `evidence_to_request`, level anchors, and gating flag.
-- **Level anchors:** the observable, falsifiable definitions of L-0 to L-4 in `maturity/scale.yaml` against which every criterion is scored.
+- **Level anchors:** the observable, falsifiable definitions of L-1 to L-5 in `maturity/scale.yaml` against which every criterion is scored.
 
 ## The scale, bands, and stages
 
-- **Scale:** the five ascending levels: L-0 Absent, L-1 Initial, L-2 Defined, L-3 Automated, L-4 Autonomous. Numbered from zero; see **level numbering**.
+- **Scale:** five ascending capability levels (L-1 Absent, L-2 Initial, L-3 Defined, L-4 Automated, L-5 Autonomous) aligned one-to-one with the bands, plus L-0 Not Assessed (not a capability level); see **level numbering**.
 - **Band (canonical v2 band):** the index range the result resolves to, canonically numbered level-1 to level-5: Emergent (0-20), Structured (21-45), Systematic (46-70), Adaptive (71-88), Self-Optimising (89-100). Ranges are inclusive. See **level numbering**.
-- **Level numbering:** two ladders with an offset of one. Scale levels (the capability ladder, what you score) count from zero: L-0 to L-4. Canonical bands (the band ladder, what the index resolves to) count from one: level-1 to level-5. L-0 resolves to band 1, L-1 to band 2, and so on. Always pair them in results ("L-2, band 3 Systematic"). Renumbering the scale levels is an upstream change request against the canonical scale owner, never a local edit. An upstream CR ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)) proposes resolving the offset (L-0 plus L-1..L-5, one-to-one with the bands); adopt it only when the canonical instance releases the renumbering.
+- **Level numbering:** the two ladders align one-to-one. Scale levels (the capability ladder, what you score) are L-1 to L-5; canonical bands (the band ladder, what the index resolves to) are level-1 to level-5. L-2 sits in band 2 Structured, L-3 in band 3 Systematic, and so on, so a result carries one number everywhere. L-0 is Not Assessed: no evidence examined, 0 points; it lowers evidence confidence and never inflates the index. Level semantics are owned upstream; renumbering is an upstream change request against the canonical scale owner, never a local edit ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214) realigned the ordinals from the historical zero-based form). Results recorded before the renumbering keep their index and band; only the per-criterion level label shifts by one (old L-0 Absent to L-1, old L-4 Autonomous to L-5).
 - **AO stage:** the model-level stage name for each level: Manual & Reactive, Instrumented & Assisted, Closed-Loop Automated, Goal-Driven Autonomy, Self-Improving Ecosystem.
 - **OODA loop:** Observe, Orient, Decide, Act; the closed-loop control pattern every assessed loop follows.
-- **OODA stage ownership:** the progression axis of the model. Maturity is defined by who owns each OODA stage, from humans owning all four at L-0 to a self-learning loop with humans governing values at L-4.
+- **OODA stage ownership:** the progression axis of the model. Maturity is defined by who owns each OODA stage, from humans owning all four at L-1 to a self-learning loop with humans governing values at L-5.
 
 ## Scoring
 
-- **Level points:** the fixed points a scored level earns: L-0 = 20, L-1 = 45, L-2 = 70, L-3 = 88, L-4 = 100.
+- **Level points:** the fixed points a scored level earns: L-1 = 20, L-2 = 45, L-3 = 70, L-4 = 88, L-5 = 100; L-0 (Not Assessed) earns 0.
 - **Unassessed criterion:** scores 0 points and lowers evidence confidence; it never inflates the index.
 - **Dimension score:** the unweighted mean of its criteria's points.
 - **AO Autonomy Index:** the 0-100 weighted mean of dimension scores; the model's headline result.

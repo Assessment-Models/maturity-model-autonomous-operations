@@ -12,6 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - Mapping: old L-0 -> new L-1, old L-1 -> new L-2, old L-2 -> new L-3, old L-3 -> new L-4, old L-4 -> new L-5.
   - Unchanged: level definitions; level points (20/45/70/88/100); band ranges, names, and effort multipliers (`dea:maturity-bands-v2` v1.0.0); weights and weight profiles; gating criteria 4.1.1-4.1.4; the weakest-link gate; the confidence model.
   - Comparability: historical index values and bands remain valid as recorded; only per-criterion level labels shift (+1 for the five capability levels).
+  - Lockstep consuming-side changes: `model.yaml` and `standard.yaml` declare 2.0.0; `scripts/local_validate.py` validates the six-level scale (L-0 Not Assessed plus L-1..L-5) and the L-1..L-5 `level_points` map; `README.md` and `docs/` present the aligned numbering (the pairing convention is retired).
 
 ### Added
 - README rebuilt as a model overview and assessment guide (14-section architecture per the

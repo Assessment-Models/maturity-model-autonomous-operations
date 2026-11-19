@@ -26,7 +26,7 @@ Scope: an illustrative whole-organization assessment using the default weight pr
 
 - The per-dimension profile is flat (60 to 74): no dimension is dragging. That shape matters more than the headline number. A 68 built on a flat profile is durable; a 68 built on Strategy 90 and Culture 30 is not.
 - **Reaching the next band** (Adaptive, 71-88) needs roughly 3 index points. Points get more expensive as you climb: the effort multiplier rises from 2.5× to 4.0×, and the model treats that as a planning signal, not a reason to stop.
-- The cheapest route to Adaptive here is the heaviest-weighted dimensions that score lowest among them (Party at 60, weighted 0.15), plus confirming the gating spine is comfortably at L-2 or above, so nothing caps the band.
+- The cheapest route to Adaptive here is the heaviest-weighted dimensions that score lowest among them (Party at 60, weighted 0.15), plus confirming the gating spine is comfortably at L-3 or above, so nothing caps the band.
 
 ## Example B: the weakest-link gate (examples/assessment-example-gate.yaml)
 
@@ -34,27 +34,27 @@ Scope: two value streams, order-to-activate and trouble-to-resolve, default weig
 
 | Criterion | OODA stage / theme | Level | Band | Points | Gating |
 |---|---|---|---|---|---|
-| 4.1.1 | Observe (detect) | L-2 | 3: Systematic | 70 | yes |
-| 4.1.2 | Orient (root-cause) | L-1 | 2: Structured | 45 | yes |
-| 4.1.3 | Decide | L-2 | 3: Systematic | 70 | yes |
-| 4.1.4 | Act | L-2 | 3: Systematic | 70 | yes |
-| 4.2.5 | Operations flow criterion | L-2 | 3: Systematic | 70 | no |
-| 3.3.8 | Technology criterion | L-2 | 3: Systematic | 70 | no |
-| 2.4.7 | Strategy: guardrails, escalation & audit | L-1 | 2: Structured | 45 | no |
-| 3.1.8 | Technology criterion | L-1 | 2: Structured | 45 | no |
+| 4.1.1 | Observe (detect) | L-3 | 3: Systematic | 70 | yes |
+| 4.1.2 | Orient (root-cause) | L-2 | 2: Structured | 45 | yes |
+| 4.1.3 | Decide | L-3 | 3: Systematic | 70 | yes |
+| 4.1.4 | Act | L-3 | 3: Systematic | 70 | yes |
+| 4.2.5 | Operations flow criterion | L-3 | 3: Systematic | 70 | no |
+| 3.3.8 | Technology criterion | L-3 | 3: Systematic | 70 | no |
+| 2.4.7 | Strategy: guardrails, escalation & audit | L-2 | 2: Structured | 45 | no |
+| 3.1.8 | Technology criterion | L-2 | 2: Structured | 45 | no |
 
 **Resolution, as recorded in the example:**
 
 1. The sampled Operations slice averages **63.75**; the illustrative weighted index across dimensions is **64**.
 2. Index 64 falls in 46-70: **band from index = Systematic**.
-3. Weakest-link gate: the lowest in-scope gating criterion is **4.1.2 (root-cause) at L-1**, which maps to the **Structured** band (21-45).
+3. Weakest-link gate: the lowest in-scope gating criterion is **4.1.2 (root-cause) at L-2**, which maps to the **Structured** band (21-45).
 4. The gate caps the result: **org band = Structured**, AO stage = **Instrumented & Assisted**, effort-adjusted value = 64 × 1.5 = **96.0**. Evidence confidence: Medium.
 
 **How to read it:**
 
 - The index landed in Systematic, but root-causing is still human-led, so the organization is capped at Structured. The gate exists to make the real blocker visible instead of letting a healthy average hide it.
-- **The decision this result should trigger:** invest in automating root-cause (the Orient stage) before spending anything on polishing detection or party engagement. Moving 4.1.2 from L-1 to L-2 alone can lift the entire organization's band, at a fraction of the effort of raising dimension averages.
-- Note the secondary signal: 2.4.7 (guardrails, escalation, audit) also sits at L-1. Raising the gate without raising guardrail maturity would be exactly the wrong lesson to take: the model scores bounded autonomy, not unleashed automation. An estate that acts autonomously without auditable guardrails is a risk, not a maturity gain.
+- **The decision this result should trigger:** invest in automating root-cause (the Orient stage) before spending anything on polishing detection or party engagement. Moving 4.1.2 from L-2 to L-3 alone can lift the entire organization's band, at a fraction of the effort of raising dimension averages.
+- Note the secondary signal: 2.4.7 (guardrails, escalation, audit) also sits at L-2. Raising the gate without raising guardrail maturity would be exactly the wrong lesson to take: the model scores bounded autonomy, not unleashed automation. An estate that acts autonomously without auditable guardrails is a risk, not a maturity gain.
 
 ## Using your own results
 

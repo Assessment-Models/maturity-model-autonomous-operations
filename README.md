@@ -1,6 +1,6 @@
 # Autonomous Operations Maturity Model
 
-**`dea:maturity-autonomous-operations`** · release 1.0.1 (stable) · MIT license
+**`dea:maturity-autonomous-operations`** · release 2.0.0 (adoption pending [dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)) · MIT license
 
 This model measures how mature an organization is at **running** Autonomous Operations: an operating model in which value streams are instrumented with AI, data, and closed-loop control, so that agents and autonomous systems progressively take over routine cognitive work under designed human oversight.
 
@@ -18,7 +18,7 @@ It assesses the **operating model, not the technology count**. Two organizations
 
 ## What it assesses
 
-Six dimensions, 32 sub-dimensions, 157 criteria. Each criterion is scored L-0 to L-4 against defined anchors, and evidence is required for every score.
+Six dimensions, 32 sub-dimensions, 157 criteria. Each criterion is scored on five capability levels, L-1 to L-5, against defined anchors (or L-0, Not Assessed, when no evidence could be examined), and evidence is required for every score.
 
 | Dimension | What it measures | Sub-dims | Criteria |
 |---|---|---|---|
@@ -33,25 +33,26 @@ Six dimensions, 32 sub-dimensions, 157 criteria. Each criterion is scored L-0 to
 
 > **1.1.1 Predictive Engagement.** The organization enables Predictive Engagement by using intelligent automation and customer insights (such as behavioral data and user profiles) to proactively anticipate customer needs and dynamically determine the right target, channel, and timing of engagement.
 
-And the corresponding questionnaire item asks: *"To what extent is Predictive Engagement in place within the assessment scope?"*, with observable behavior, requested evidence (CX analytics and NPS/CSAT exports, channel telemetry and consent records, campaign performance data, and more), and the L-0 to L-4 level anchors.
+And the corresponding questionnaire item asks: *"To what extent is Predictive Engagement in place within the assessment scope?"*, with observable behavior, requested evidence (CX analytics and NPS/CSAT exports, channel telemetry and consent records, campaign performance data, and more), and the L-1 to L-5 level anchors.
 
-## The five levels
+## The levels
 
 Progression is defined by **who owns each OODA stage** (Observe, Orient, Decide, Act):
 
 | Level | Name | Band (range) | AO stage | Who decides and acts |
 |---|---|---|---|---|
-| L-0 | Absent | 1: Emergent (0-20) | Manual & Reactive | Humans perform every OODA stage |
-| L-1 | Initial | 2: Structured (21-45) | Instrumented & Assisted | Machines observe; humans orient and decide |
-| L-2 | Defined | 3: Systematic (46-70) | Closed-Loop Automated | Loops decide within rules; humans set goals and handle exceptions |
-| L-3 | Automated | 4: Adaptive (71-88) | Goal-Driven Autonomy | Agents decide and act within guardrails; humans set intent and audit |
-| L-4 | Autonomous | 5: Self-Optimising (89-100) | Self-Improving Ecosystem | Loops self-learn ecosystem-wide; humans govern values and audit |
+| L-0 | Not Assessed | (no band: 0 points) | — | Not assessed: no evidence examined; scores 0 and lowers confidence |
+| L-1 | Absent | 1: Emergent (0-20) | Manual & Reactive | Humans perform every OODA stage |
+| L-2 | Initial | 2: Structured (21-45) | Instrumented & Assisted | Machines observe; humans orient and decide |
+| L-3 | Defined | 3: Systematic (46-70) | Closed-Loop Automated | Loops decide within rules; humans set goals and handle exceptions |
+| L-4 | Automated | 4: Adaptive (71-88) | Goal-Driven Autonomy | Agents decide and act within guardrails; humans set intent and audit |
+| L-5 | Autonomous | 5: Self-Optimising (89-100) | Self-Improving Ecosystem | Loops self-learn ecosystem-wide; humans govern values and audit |
 
-**Numbering convention.** Scale levels count from zero (L-0 to L-4, the capability ladder you score) while the canonical bands they resolve to count from one (level-1 to level-5, the band ladder the index lands in). The ladders are offset by one: L-0 resolves to band 1, L-2 to band 3. When reading or writing results, always pair them ("L-2, band 3 Systematic"). Renumbering the scale levels is not a local edit: the scale binds the canonical instance owned upstream in `technehub-labs/dea-metamodel`, and level semantics change only through a change request (see Governance below). A change request proposing to resolve the offset by renumbering the scale to L-0 plus L-1..L-5, aligned one-to-one with the bands, is filed upstream ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)); until the ecosystem ratifies and releases it, the pairing convention above applies.
+**Numbering convention.** Scale level ordinals align one-to-one with the canonical band ordinals: L-1 resolves to band 1 Emergent and L-3 to band 3 Systematic, so a result reads as a single number everywhere ("L-3, band 3 Systematic"). L-0 is not a capability level: it means Not Assessed (no evidence examined), scores 0 points, lowers evidence confidence, and never inflates the index. The alignment is adopted from the upstream change request ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)), which renumbered the capability ladder from its historical zero-based form so the permanent off-by-one between what is scored and what is reported is gone. Level semantics still change only through a change request against the canonical scale owner (see Governance below). Results recorded before the renumbering remain valid: index values, bands, and effort-adjusted values are unchanged; only per-criterion level labels shift by one (old L-0 Absent to new L-1 Absent, through old L-4 Autonomous to new L-5 Autonomous).
 
 ## How scoring works
 
-1. Each of the 157 criteria is scored L-0 to L-4; the level maps to points (L-0 = 20, L-1 = 45, L-2 = 70, L-3 = 88, L-4 = 100).
+1. Each of the 157 criteria is scored L-1 to L-5 (or L-0, Not Assessed); the level maps to points (L-1 = 20, L-2 = 45, L-3 = 70, L-4 = 88, L-5 = 100; L-0 scores 0).
 2. Dimension score = mean of its criteria. **AO Autonomy Index (0-100)** = weighted mean of dimensions (weights are declared in `maturity/evaluation.yaml`; the default profile weights Strategy, Operations, and Technology at 0.20 each, Data and Party at 0.15, Culture at 0.10; a `comms-provider` profile weights Operations higher).
 3. The index resolves to a maturity band.
 4. **Weakest-link gate:** the organization's band cannot exceed the band of its lowest in-scope gating criterion. The four gating criteria (4.1.1 to 4.1.4) are the closed-loop spine: detect, root-cause, decide, act. A loop that cannot act cannot make the organization autonomous.
@@ -79,7 +80,7 @@ For a narrative tour of the dimensions and what each level looks like in practic
 | [docs/WORKED-EXAMPLE.md](docs/WORKED-EXAMPLE.md) | End-to-end scoring walkthrough, including the weakest-link gate |
 | [docs/GLOSSARY.md](docs/GLOSSARY.md) | Every term used in the model, defined in plain language |
 | `maturity/model/autonomous-operations.yaml` | The criteria register (authoritative) |
-| `maturity/scale.yaml` | The five-level scale (authoritative) |
+| `maturity/scale.yaml` | The scale: L-0 Not Assessed plus five capability levels (authoritative) |
 | `maturity/evaluation.yaml` | Scoring model and assessment method (authoritative) |
 | `maturity/assessment-questionnaire.yaml` | The instrument: one entry per criterion |
 | `docs/ARCHITECTURE.md` | Repository and ecosystem architecture |
@@ -91,7 +92,7 @@ All terms, including scoring and ecosystem vocabulary, are defined in [docs/GLOS
 
 - **OODA loop:** Observe, Orient, Decide, Act; the closed-loop control pattern the model uses as its progression axis.
 - **Gating criterion:** one of the four closed-loop spine criteria (4.1.1 to 4.1.4) that caps the organization's band.
-- **Band:** the resolved maturity band (Emergent, Structured, Systematic, Adaptive, Self-Optimising), canonically numbered level-1 to level-5; scale levels count from zero, so always pair level and band when reading results.
+- **Band:** the resolved maturity band (Emergent, Structured, Systematic, Adaptive, Self-Optimising), canonically numbered level-1 to level-5, aligned one-to-one with the scale levels L-1 to L-5.
 - **Effort-adjusted value:** index × band effort multiplier; expresses that higher bands cost disproportionately more per point.
 - **Confidence:** High (at least 80% of criteria independently verified), Medium (50-79%), Low (below 50% or self-attested only).
 
