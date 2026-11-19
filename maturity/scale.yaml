@@ -1,10 +1,10 @@
 id: dea:scale-autonomous-operations-v1
-version: 1.0.0
+version: 2.0.0
 metamodel_version: 1.0.0
 name: Autonomous Operations Maturity Scale (5-level)
-description: Canonical Autonomous Operations maturity scale, five levels (L-0 Absent .. L-4 Autonomous).
+description: Canonical Autonomous Operations maturity scale, five capability levels (L-1 Absent .. L-5 Autonomous) plus L-0 Not Assessed (zero points, not a capability level).
   Sourced from the upstream canonical instance in technehub-labs/dea-metamodel (assessment-models/maturity/scale-examples/autonomous-operations-5level.yaml,
-  version 1.0.0, status stable) — this repository binds that id and version rather than minting a competing
+  version 2.0.0, status stable) — this repository binds that id and version rather than minting a competing
   one. The model-level OODA stage names (Manual & Reactive .. Self-Improving Ecosystem) are carried as
   additive metadata on the model register, not as a second level ladder.
 status: stable
@@ -15,6 +15,15 @@ progression:
 levels:
 - id: L-0
   ordinal: 0
+  name: Not Assessed
+  definition: 'Criterion not assessed: no evidence examined. Not a capability level: it scores 0 points and lowers evidence-confidence, and it never inflates the index. Formalizes the unassessed-criterion rule of evaluation.yaml.'
+  characteristics:
+  - No evidence collected or verified.
+  expected_practices: []
+  evidence_expectations: []
+  short_description: Unassessed
+- id: L-1
+  ordinal: 1
   name: Absent
   definition: 'Capability is not established; no recurring practice or owner.
 
@@ -25,8 +34,8 @@ levels:
   expected_practices: []
   evidence_expectations: []
   short_description: Not established
-- id: L-1
-  ordinal: 1
+- id: L-2
+  ordinal: 2
   name: Initial
   definition: 'Capability exists in isolated form; success depends on individuals.
 
@@ -36,8 +45,8 @@ levels:
   - Informal knowledge transfer.
   expected_practices: []
   evidence_expectations: []
-- id: L-2
-  ordinal: 2
+- id: L-3
+  ordinal: 3
   name: Defined
   definition: 'Capability is documented, agreed, and consistently applied within the assessed scope.
 
@@ -47,8 +56,8 @@ levels:
   - Governance assigned but inconsistently applied.
   expected_practices: []
   evidence_expectations: []
-- id: L-3
-  ordinal: 3
+- id: L-4
+  ordinal: 4
   name: Automated
   definition: 'Defined activities are systematically automated; tooling enforces the practice.
 
@@ -58,8 +67,8 @@ levels:
   - Decision support embedded in operational systems.
   expected_practices: []
   evidence_expectations: []
-- id: L-4
-  ordinal: 4
+- id: L-5
+  ordinal: 5
   name: Autonomous
   definition: 'Capability operates autonomously within defined governance constraints; humans intervene
     only on exception.

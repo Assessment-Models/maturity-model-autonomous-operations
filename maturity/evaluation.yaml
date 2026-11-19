@@ -2,11 +2,11 @@
 # Ported from the catalog bundle; bands/multipliers are canonical upstream (dea:maturity-bands-v2).
 
 id: dea:evaluation-autonomous-operations-v1
-version: 1.0.1
+version: 2.0.0
 name: Autonomous Operations Evaluation Model
 scale:
   id: dea:scale-autonomous-operations-v1
-  version: 1.0.0
+  version: 2.0.0
 score_scheme: dea-maturity-v2
 band_reference:
   id: dea:maturity-bands-v2
@@ -20,13 +20,13 @@ scoring:
     minimum: 0
     maximum: 100
   level_points:
-    L-0: 20
-    L-1: 45
-    L-2: 70
-    L-3: 88
-    L-4: 100
+    L-1: 20
+    L-2: 45
+    L-3: 70
+    L-4: 88
+    L-5: 100
   level_band_map:
-  - level: L-0
+  - level: L-1
     band_id: level-1-emergent
     band_range:
     - 0
@@ -35,7 +35,7 @@ scoring:
     effort_multiplier: 1.0
     legacy_v1_name: Ad Hoc
     ao_stage: Manual & Reactive
-  - level: L-1
+  - level: L-2
     band_id: level-2-structured
     band_range:
     - 21
@@ -44,7 +44,7 @@ scoring:
     effort_multiplier: 1.5
     legacy_v1_name: Defined
     ao_stage: Instrumented & Assisted
-  - level: L-2
+  - level: L-3
     band_id: level-3-systematic
     band_range:
     - 46
@@ -53,7 +53,7 @@ scoring:
     effort_multiplier: 2.5
     legacy_v1_name: Managed
     ao_stage: Closed-Loop Automated
-  - level: L-3
+  - level: L-4
     band_id: level-4-adaptive
     band_range:
     - 71
@@ -62,7 +62,7 @@ scoring:
     effort_multiplier: 4.0
     legacy_v1_name: Quantitatively Managed
     ao_stage: Goal-Driven Autonomy
-  - level: L-4
+  - level: L-5
     band_id: level-5-self-optimising
     band_range:
     - 89
@@ -71,8 +71,8 @@ scoring:
     effort_multiplier: 6.0
     legacy_v1_name: Optimising
     ao_stage: Self-Improving Ecosystem
-  aggregation_rule: '1. Score each criterion on the scale level L-0..L-4 (maturity/scale.yaml); criterion points = the upper
-    edge of that level''s canonical v2 band (level_points: L-0=20, L-1=45, L-2=70, L-3=88, L-4=100). A criterion not assessed
+  aggregation_rule: '1. Score each criterion on the scale level L-1..L-5 (maturity/scale.yaml); criterion points = the upper
+    edge of that level''s canonical v2 band (level_points: L-1=20, L-2=45, L-3=70, L-4=88, L-5=100). A criterion not assessed is scored L-0 (Not Assessed); it
     scores 0 and lowers evidence-confidence; it never inflates the index. 2. Dimension score = unweighted mean of its criteria.
     3. AO Autonomy Index = weighted mean of dimension scores (weight_profiles; default = dimension_weights). 4. Resolve the
     index to a canonical v2 band (dea:maturity-bands-v2); the org band is that band, capped by the weakest-link gate: the
@@ -113,7 +113,7 @@ scoring:
   - ecosystem-participation
   notes: Ported from the catalog bundle evaluation.yaml and re-based onto the canonical v2 bands (non-linear widths, multipliers
     1.0-6.0, owned by dea:maturity-bands-v2 in technehub-labs/dea-metamodel). The frozen v1-alpha catalog lineage keeps its
-    v1 bands; this repo is the canonical v2 home.
+    v1 bands; this repo is the canonical v2 home. Level ordinals renumbered to L-1..L-5 with L-0 formalized as Not Assessed (0 points), aligning capability levels one-to-one with canonical bands level-1..level-5; points, bands, and multipliers unchanged.
 assessment:
   subject: The organization's operating model across its value streams; assessable per value stream/scenario and rolled up
     org-wide.
