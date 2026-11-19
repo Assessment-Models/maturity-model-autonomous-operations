@@ -41,15 +41,16 @@ Score against the level anchors, not gut feel:
 
 | Level | Name | Resolves to band | Anchor |
 |---|---|---|---|
-| L-0 | Absent | 1: Emergent | No recurring practice, no owner |
-| L-1 | Initial | 2: Structured | Isolated, person-dependent success |
-| L-2 | Defined | 3: Systematic | Documented, agreed, consistently applied in scope |
-| L-3 | Automated | 4: Adaptive | Tooling enforces the practice; governance is tool-integrated |
-| L-4 | Autonomous | 5: Self-Optimising | Executes within governance constraints; humans intervene only on exception |
+| L-0 | Not Assessed | — | No evidence examined; 0 points; not a capability level |
+| L-1 | Absent | 1: Emergent | No recurring practice, no owner |
+| L-2 | Initial | 2: Structured | Isolated, person-dependent success |
+| L-3 | Defined | 3: Systematic | Documented, agreed, consistently applied in scope |
+| L-4 | Automated | 4: Adaptive | Tooling enforces the practice; governance is tool-integrated |
+| L-5 | Autonomous | 5: Self-Optimising | Executes within governance constraints; humans intervene only on exception |
 
-Watch the numbering offset: levels count from zero, canonical bands from one, so an L-2 criterion resolves to band 3. Record level and band together and the trap disappears.
+Levels and bands align one-to-one: an L-3 criterion sits in band 3 Systematic. Record level and band together and you can read a result at a glance.
 
-Record per criterion: level (L-0..L-4), confidence (High / Medium / Low), and a one-line rationale.
+Record per criterion: level (L-1..L-5, or L-0 if unassessed), confidence (High / Medium / Low), and a one-line rationale.
 
 ## Step 5: compute the result by hand (10 min)
 
@@ -57,7 +58,7 @@ The scoring pipeline:
 
 ```mermaid
 flowchart LR
-  C["Criteria scored L-0 to L-4"] --> P["Level to points: 20 / 45 / 70 / 88 / 100"]
+  C["Criteria scored L-1 to L-5"] --> P["Level to points: 20 / 45 / 70 / 88 / 100"]
   P --> DM["Dimension score = mean of its criteria"]
   DM --> I["AO Autonomy Index = weighted mean"]
   I --> B["Resolve to band"]
@@ -65,7 +66,7 @@ flowchart LR
   G --> R["Report: index, band, stage, effort-adjusted value"]
 ```
 
-1. **Level to points:** L-0 = 20, L-1 = 45, L-2 = 70, L-3 = 88, L-4 = 100.
+1. **Level to points:** L-1 = 20, L-2 = 45, L-3 = 70, L-4 = 88, L-5 = 100 (L-0, Not Assessed, scores 0).
 2. **Dimension score:** the mean of your slice's criteria within each dimension.
 3. **AO Autonomy Index:** weighted mean using the default profile: Strategy 0.20, Operations 0.20, Technology 0.20, Data 0.15, Party 0.15, Culture 0.10.
 4. **Resolve the band:** Emergent (0-20), Structured (21-45), Systematic (46-70), Adaptive (71-88), Self-Optimising (89-100).
@@ -84,9 +85,9 @@ flowchart LR
 | Data | 44 | 0.15 | 6.60 |
 | **AO Autonomy Index** | | | **47.0** |
 
-The index lands in Systematic (46-70). But the gating slice scored 4.1.1 at L-1, 4.1.2 at L-1, 4.1.3 at L-2, 4.1.4 at L-1: the lowest gating level is L-1, which is the Structured band. **The gate caps the result: org band = Structured, AO stage = Instrumented & Assisted, effort-adjusted value = 47 × 1.5 = 70.5.**
+The index lands in Systematic (46-70). But the gating slice scored 4.1.1 at L-2, 4.1.2 at L-2, 4.1.3 at L-3, 4.1.4 at L-2: the lowest gating level is L-2, which is the Structured band. **The gate caps the result: org band = Structured, AO stage = Instrumented & Assisted, effort-adjusted value = 47 × 1.5 = 70.5.**
 
-That cap is the pilot's main finding: detection tooling exists (L-1/L-2 on observe), but deciding and acting are still human-led. The frontier is the act stage of the loop, not any dimension average.
+That cap is the pilot's main finding: detection tooling exists (L-2/L-3 on observe), but deciding and acting are still human-led. The frontier is the act stage of the loop, not any dimension average.
 
 ## Step 6: decide what to do with it
 

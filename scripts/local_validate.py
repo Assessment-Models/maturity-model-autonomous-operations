@@ -5,7 +5,8 @@ Checks:
   1. model.yaml parses and matches the Assessment-Models manifest contract
      (`Assessment-Models/assessment-ci/schemas/model-manifest.schema.json`)
   2. the §15 contract handshake is well formed (contract id + version + source)
-  3. maturity/scale.yaml declares exactly 5 levels with ordinals 0..4 and the
+  3. maturity/scale.yaml declares 6 levels with ordinals 0..5 (L-0 Not Assessed,
+     plus capability levels L-1..L-5 per dea-metamodel #214) and the
      expected identifiers, plus a conformant ordering/progression contract
   4. maturity/model/autonomous-operations.yaml carries the model identity, and its level references
      resolve against the scale
@@ -58,7 +59,7 @@ if not src.get("organization") or not src.get("repository"):
     errors.append("model.yaml: conformance.source organization+repository are required")
 
 # 3 — scale
-EXPECTED_LEVELS = ['L-0', 'L-1', 'L-2', 'L-3', 'L-4']
+EXPECTED_LEVELS = ['L-0', 'L-1', 'L-2', 'L-3', 'L-4', 'L-5']
 levels_actual = scale.get("levels") or []
 if len(levels_actual) != len(EXPECTED_LEVELS):
     errors.append(f"scale: expected {len(EXPECTED_LEVELS)} levels, found {len(levels_actual)}")
@@ -69,6 +70,8 @@ for i, lvl in enumerate(levels_actual):
         errors.append(f"scale: unexpected level id {lvl.get('id')!r}")
     if not lvl.get("name") or not lvl.get("definition"):
         errors.append(f"scale: level {lvl.get('id')} requires name and definition")
+if levels_actual and levels_actual[0].get("name") != "Not Assessed":
+    errors.append("scale: level ordinal 0 must be the Not Assessed entry (L-0)")
 if scale.get("ordering") != "ascending":
     errors.append("scale: ordering must be 'ascending'")
 prog = scale.get("progression") or {}
@@ -131,8 +134,10 @@ for pname, pw in (sc.get("weight_profiles") or {}).items():
     if abs(sum(pw.values()) - 1.0) > 1e-9:
         errors.append(f"evaluation: weight profile {pname} does not sum to 1")
 lp = sc.get("level_points") or {}
-if sorted(lp) != ["L-0", "L-1", "L-2", "L-3", "L-4"]:
-    errors.append("evaluation: level_points must cover L-0..L-4")
+if sorted(lp) != ["L-1", "L-2", "L-3", "L-4", "L-5"]:
+    errors.append("evaluation: level_points must cover L-1..L-5")
+if lp.get("L-0") not in (None, 0):
+    errors.append("evaluation: L-0 (Not Assessed) must score 0 points")
 questionnaire = load("maturity/assessment-questionnaire.yaml")
 qids = [c["id"] for sec in questionnaire.get("sections", []) for c in sec.get("criteria", [])]
 reg_ids = [str(c["id"]) for d in register.get("dimensions", []) for sd in d.get("sub_dimensions", []) for c in sd.get("criteria", [])]

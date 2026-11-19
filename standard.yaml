@@ -19,4 +19,4 @@ standard:
 model:
   id: maturity-model-autonomous-operations
   name: Autonomous Operations Maturity Model
-  version: "1.0.1"
+  version: "2.0.0"
