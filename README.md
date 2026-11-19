@@ -1,11 +1,12 @@
 # Autonomous Operations Maturity Model
 
-**`dea:maturity-autonomous-operations`** — an enterprise maturity and assessment model for
-**Autonomous Operations (AO)**: the operating model in which an organization's value streams are
-instrumented with AI, data and **closed-loop control**, so that agents and autonomous systems
-**learn, self-govern and self-adapt** — with **intent and goals driving the closed loops**
-(Observe → Orient → Decide → Act) — progressively shifting the burden of decisions and execution
-from humans to machines, under designed human oversight.
+** AOMM is an enterprise maturity and assessment model for **Autonomous Operations (AO)**: 
+the operating model in which an organization's value streams are instrumented with AI, data 
+and **closed-loop control**, so that agents and autonomous systems **learn, self-govern and 
+self-adapt** : with **intent and goals driving the closed loops**
+(Observe → Orient → Decide → Act, or alternate variants of decision models) — progressively 
+shifting the burden of decisions and execution from humans to machines, under designed human 
+oversight.
 
 > **Model release:** `1.0.1` · **stable** · scored on the canonical v2 bands
 > (`dea:maturity-bands-v2` v1.0.0, `technehub-labs/dea-metamodel`).
