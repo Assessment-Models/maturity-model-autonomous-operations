@@ -81,11 +81,11 @@ Assessment hierarchy (actual identifiers from the register):
 ```mermaid
 flowchart TB
     M["Autonomous Operations Maturity Assessment"] --> D1["1 Party (7 sub-dimensions)"]
-    M --> D2["2 Strategy (5)"]
-    M --> D3["3 Technology (4)"]
-    M --> D4["4 Operations (6)"]
-    M --> D5["5 Culture (5)"]
-    M --> D6["6 Data (5)"]
+    M --> D2["2 Strategy (5 sub-dimensions)"]
+    M --> D3["3 Technology (4 sub-dimensions)"]
+    M --> D4["4 Operations (6 sub-dimensions)"]
+    M --> D5["5 Culture (5 sub-dimensions)"]
+    M --> D6["6 Data (5 sub-dimensions)"]
     D1 --> SD["32 sub-dimensions"]
     D2 --> SD
     D3 --> SD
