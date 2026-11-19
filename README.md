@@ -1,6 +1,6 @@
 # Autonomous Operations Maturity Model
 
-**AOMM is an enterprise maturity and assessment model for **Autonomous Operations (AO)**: 
+**AOMM** is an enterprise maturity and assessment model for **Autonomous Operations (AO)**: 
 the operating model in which an organization's value streams are instrumented with AI, data 
 and **closed-loop control**, so that agents and autonomous systems **learn, self-govern and 
 self-adapt** : with **intent and goals driving the closed loops**
