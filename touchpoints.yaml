@@ -1,0 +1,53 @@
+# =============================================================================
+# touchpoints.yaml — CR-AM-13 Phase 2 DRAFT (mirror record)
+# Handshake & Touchpoint Model: Autonomous Operations ↔ Operations
+# Contract: maturity-touchpoint-contract v0.1.0-draft (technehub-labs/dea-metamodel)
+# =============================================================================
+id: dea:touchpoints-autonomous-operations-v1
+repo_id: maturity-model-autonomous-operations
+version: 0.1.0-draft
+status: draft
+metamodel_version: 1.0.0
+description: >-
+  Mirrored touchpoint record(s) formalizing this model's seam with the
+  Operations Maturity Model (dea:maturity-operations), per the Handshake &
+  Touchpoint Model (CR-AM-13 §5). Reciprocity: each record mirrors a
+  touchpoint declared in Assessment-Models/maturity-model-operations on main.
+contract:
+  id: maturity-touchpoint-contract
+  version: 0.1.0-draft
+  source: { organization: technehub-labs, repository: dea-metamodel }
+
+touchpoints:
+- id: tp-autonomous-operations-x-operations
+  mirrors: tp-ops-x-autonomous-operations
+  peer_asset: dea:maturity-operations
+  peer_repo: maturity-model-operations
+  peer_touchpoint_id: tp-ops-x-autonomous-operations
+  direction: consumes
+  mapping_type: consumes
+  summary: >-
+    The Operations Maturity Model's D5 reliability evidence (observability,
+    predictive detection, auto-remediation, SLO enforcement, unit economics)
+    feeds this model's Technology (3.3.x) and Operations (4.1.x/4.2.5)
+    criteria. This register already declares derived-from (extends) toward
+    dea:maturity-operations; this record formalizes the reciprocity.
+  overlap_resolution: >-
+    Automation of known failure modes is assessed BY THE PEER (D5, up to
+    auto-remediation). Closed-loop, intent-driven autonomy (OODA ownership)
+    is assessed HERE. Boundary: who owns the OODA stages.
+  criteria_mapping:
+  - ours: 3.3.8            # Observability & Event Intelligence
+    theirs: OPS-D5-SD1-C01
+    note: evidence single-assessed by the peer; this model cites it
+  - ours: 4.1.1            # Detect Anomaly Event (gated criterion)
+    theirs: OPS-D5-SD3-C07
+  - ours: 4.1.2            # Demarcate and locate root-cause
+    theirs: OPS-D5-SD2-C03
+  - ours: 3.1.3            # Intelligent Closed Loop Orchestration
+    theirs: OPS-D5-SD4-C09
+  - ours: 4.2.5            # SLO & Error Budget Management
+    theirs: OPS-D5-SD4-C10
+  - ours: 3.3.6            # Resource Optimization
+    theirs: OPS-D5-SD4-C11
+  reciprocity: mirrors-tp-ops-x-autonomous-operations
