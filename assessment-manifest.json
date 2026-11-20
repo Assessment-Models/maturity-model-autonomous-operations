@@ -1,0 +1,25 @@
+{
+  "id": "maturity-model-autonomous-operations",
+  "title": "Autonomous Operations Maturity Model",
+  "layer": "maturity-model",
+  "architectural_concern": "Autonomous Operations",
+  "version": "v2.0.0",
+  "license": "MIT",
+  "conformance_status": "structural",
+  "standards_alignment": [
+    "OpenDEA",
+    "AM-MODEL-REPOSITORY-STANDARD"
+  ],
+  "locales": [
+    "en"
+  ],
+  "dimensions": [
+    "Party",
+    "Strategy",
+    "Technology",
+    "Operations",
+    "Culture",
+    "Data"
+  ],
+  "description": "Autonomous Operations (AO) maturity and assessment model — the enterprise operating model in which value streams are instrumented with AI, data and closed-loop control so that agents and autonomous systems learn, self-govern and self-adapt, with intent driving the closed loops."
+}
