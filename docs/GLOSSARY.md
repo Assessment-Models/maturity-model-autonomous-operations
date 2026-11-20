@@ -72,4 +72,4 @@ Plain-language definitions for every term used in this repository. Where a term 
 - **dea-maturity-v2:** the score scheme this model evaluates under.
 - **Contract handshake:** the pinned, declared agreement by which this repository conforms to the ecosystem's maturity-scale contract; checked by CI (Level 2), not asserted in prose.
 - **CI levels:** Level 1 local validation on every PR; Level 2 contract conformance against a pinned metamodel; Level 3 registry resolution.
-- **Release:** repository releases are SemVer `vX.Y.Z` tags; the model release (currently 1.0.1, stable) and repository conformance are tracked separately.
+- **Release:** repository releases are SemVer `vX.Y.Z` tags; the model release (currently 2.0.0, stable) and repository conformance are tracked separately.

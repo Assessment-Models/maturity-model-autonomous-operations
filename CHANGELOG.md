@@ -13,6 +13,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - Unchanged: level definitions; level points (20/45/70/88/100); band ranges, names, and effort multipliers (`dea:maturity-bands-v2` v1.0.0); weights and weight profiles; gating criteria 4.1.1-4.1.4; the weakest-link gate; the confidence model.
   - Comparability: historical index values and bands remain valid as recorded; only per-criterion level labels shift (+1 for the five capability levels).
   - Lockstep consuming-side changes: `model.yaml` and `standard.yaml` declare 2.0.0; `scripts/local_validate.py` validates the six-level scale (L-0 Not Assessed plus L-1..L-5) and the L-1..L-5 `level_points` map; `README.md` and `docs/` present the aligned numbering (the pairing convention is retired).
+  - Documentation cross-references updated in lockstep: the scale `name` line, `docs/RECONCILIATION.md` (scale binding and level-to-band mapping), the glossary release line, and an annotation on the historical 1.0.0 release note.
 
 ### Added
 - README rebuilt as a model overview and assessment guide (14-section architecture per the
@@ -46,7 +47,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   independently versioned asset, per the Assessment-Models organisation
   taxonomy (CR-AM-11 §8).
 - Model-owned scale conforming to the published `maturity-scale.schema.json`:
-  five levels, ordinals 0–4, `ordering: ascending`, linear topology with
+  five levels, ordinals 0–4 (superseded by the 2.0.0 renumbering to L-0 Not Assessed plus L-1..L-5, per dea-metamodel #214), `ordering: ascending`, linear topology with
   exponential progression, scored against the canonical v2 band instance
   (`dea:maturity-bands-v2` v1.0.0) — non-linear widths 20/25/25/18/12 and
   per-level effort multipliers 1.0 → 6.0.

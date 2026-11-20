@@ -1,7 +1,7 @@
 id: dea:scale-autonomous-operations-v1
 version: 2.0.0
 metamodel_version: 1.0.0
-name: Autonomous Operations Maturity Scale (5-level)
+name: Autonomous Operations Maturity Scale (L-1..L-5 plus L-0 Not Assessed)
 description: Canonical Autonomous Operations maturity scale, five capability levels (L-1 Absent .. L-5 Autonomous) plus L-0 Not Assessed (zero points, not a capability level).
   Sourced from the upstream canonical instance in technehub-labs/dea-metamodel (assessment-models/maturity/scale-examples/autonomous-operations-5level.yaml,
   version 2.0.0, status stable) — this repository binds that id and version rather than minting a competing
