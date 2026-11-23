@@ -94,12 +94,12 @@ The six dimensions provide complementary views of the enterprise conditions and 
 
 | Dimension | Weight | Subdimensions | Criteria | Assessment focus |
 |---|---:|---:|---|---|
-| **D1 · Party** | 15% | 7 | 41 | Customer, partner, employee and smart-things engagement, experience, insight and trust |
-| **D2 · Strategy** | 20% | 5 | 22 | Value model, business architecture, financial management, governance and sustainability |
-| **D3 · Technology** | 20% | 4 | 22 | Autonomy capabilities, architecture, resources and agent lifecycle |
-| **D4 · Operations** | 20% | 6 | 25 | Closed-loop operational flows across anomaly management, assurance, complaints, value uplift, net-zero and fulfillment |
-| **D5 · Culture** | 10% | 5 | 19 | Innovation, quality culture, culture management, organizational alignment and workplace enablement |
-| **D6 · Data** | 15% | 5 | 26 | Data lifecycle, quality, security, governance and value realization |
+| **D1 · Party** | 15% | 7 | 42 | Customer, partner, employee and smart-things engagement, experience, insight and trust |
+| **D2 · Strategy** | 20% | 5 | 23 | Value model, business architecture, financial management, governance and sustainability |
+| **D3 · Technology** | 20% | 4 | 23 | Autonomy capabilities, architecture, resources and agent lifecycle |
+| **D4 · Operations** | 20% | 6 | 27 | Closed-loop operational flows across anomaly management, assurance, complaints, value uplift, net-zero and fulfillment |
+| **D5 · Culture** | 10% | 5 | 20 | Innovation, quality culture, culture management, organizational alignment and workplace enablement |
+| **D6 · Data** | 15% | 5 | 22 | Data lifecycle, quality, security, governance and value realization |
 | **Total** | **100%** | **32** | **157** | |
 
 The dimension names, subdimension structure and criterion definitions are maintained in the model register. See [the model guide](docs/MODEL-GUIDE.md) for the dimension narratives and examples.
