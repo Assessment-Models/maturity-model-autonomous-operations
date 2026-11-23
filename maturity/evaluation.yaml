@@ -77,9 +77,7 @@ scoring:
     3. AO Autonomy Index = weighted mean of dimension scores (weight_profiles; default = dimension_weights). 4. Resolve the
     index to a canonical v2 band (dea:maturity-bands-v2); the org band is that band, capped by the weakest-link gate: the
     org band cannot exceed the band of the lowest IN-SCOPE gating criterion (register criteria with gating: true, 4.1.1-4.1.4);
-    scope-excluded criteria do not gate. 5. Effort-adjusted value = AO Autonomy Index x effort multiplier of the resolved
-    band (matches examples/autonomous-operations-2026.yaml: 68 x 2.5 = 170.0). 6. Report evidence-confidence (High/Medium/Low)
-    alongside the result.'
+    scope-excluded criteria do not gate. 5. Calculate effort-adjusted value (EAV) from the unrounded AO Autonomy Index by allocating its score points progressively across the five canonical v2 bands and summing each marginal band's points divided by its effort multiplier. EAV is supplementary and is not changed by the weakest-link cap. 6. Report evidence-confidence (High/Medium/Low) alongside the result.'
   dimension_weights:
     strategy: 0.2
     operations: 0.2
@@ -104,8 +102,19 @@ scoring:
       culture: 0.1
   weight_profile_rule: dimension_weights is the default profile; select a profile in the scope charter (e.g. comms-provider
     for CSPs, which weights operations higher). Profile choice is recorded in the assessment result for comparability.
-  effort_adjusted_value: 'effort_adjusted_value = AO Autonomy Index x effort_multiplier of the resolved band (matches examples/autonomous-operations-2026.yaml:
-    68 x 2.5 = 170.0)'
+  effort_adjusted_value:
+    formula: EAV(S) = sum(P_k(S) / M_k), for k = 1..5
+    input: unrounded AO Autonomy Index S in [0, 100], before weakest-link level capping
+    allocation: 'Allocate marginal score points progressively over [0,20], (20,45], (45,70], (70,88], (88,100]. Each point is counted once.'
+    intervals:
+    - { band_id: level-1-emergent, upper_boundary: 20, effort_multiplier: 1.0 }
+    - { band_id: level-2-structured, upper_boundary: 45, effort_multiplier: 1.5 }
+    - { band_id: level-3-systematic, upper_boundary: 70, effort_multiplier: 2.5 }
+    - { band_id: level-4-adaptive, upper_boundary: 88, effort_multiplier: 4.0 }
+    - { band_id: level-5-self-optimising, upper_boundary: 100, effort_multiplier: 6.0 }
+    theoretical_maximum: 53.1666666667
+    reporting_precision: 2
+    distinction: EAV is a supplementary index; it does not replace the AO Autonomy Index or determine the gated maturity level.
   level_resolution_inputs:
   - criterion-scores
   - mandatory-gating-criteria
