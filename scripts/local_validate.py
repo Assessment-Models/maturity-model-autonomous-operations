@@ -58,6 +58,15 @@ src = conf.get("source") or {}
 if not src.get("organization") or not src.get("repository"):
     errors.append("model.yaml: conformance.source organization+repository are required")
 
+# The Operations relationship is already formalized in the model register and
+# touchpoints.yaml. Keep the typed manifest declaration in lockstep so Level 2
+# can discover and validate the separately governed artifact.
+touchpoint_decl = (manifest.get("touchpoints") or {}).get("declaration")
+if touchpoint_decl != "touchpoints.yaml":
+    errors.append("model.yaml: touchpoints.declaration must point to touchpoints.yaml")
+elif not (ROOT / touchpoint_decl).is_file():
+    errors.append("model.yaml: declared touchpoint artifact does not exist")
+
 # 3 — scale
 EXPECTED_LEVELS = ['L-0', 'L-1', 'L-2', 'L-3', 'L-4', 'L-5']
 levels_actual = scale.get("levels") or []
