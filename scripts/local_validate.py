@@ -95,10 +95,23 @@ V2_BANDS = [('level-1-emergent', (0, 20), 'Emergent', 1.0, 'Ad Hoc'), ('level-2-
 
 
 def band_for(score: float):
-    for band_id, rng, name, mult, legacy in V2_BANDS:
-        if rng[0] <= score <= rng[1]:
-            return band_id, name, mult
+    for band, upper in zip(V2_BANDS, (20.0, 45.0, 70.0, 88.0, 100.0)):
+        if score <= upper:
+            return band[0], band[2], band[3]
     return None, None, None
+
+
+def marginal_points(score: float) -> list[float]:
+    lower = 0.0
+    points = []
+    for upper in (20.0, 45.0, 70.0, 88.0, 100.0):
+        points.append(max(0.0, min(score, upper) - lower))
+        lower = upper
+    return points
+
+
+def effort_adjusted_value(score: float) -> float:
+    return sum(p / m for p, m in zip(marginal_points(score), (1.0, 1.5, 2.5, 4.0, 6.0)))
 
 
 agg = example.get("aggregated_score")
@@ -116,12 +129,14 @@ else:
             errors.append(f"example: resolved_band {declared!r} != computed {band_id!r}")
         eav = example.get("effort_adjusted_value")
         if eav is not None and mult is not None:
-            expected = round(float(agg) * float(mult), 2)
+            expected = effort_adjusted_value(float(agg))
             if abs(float(eav) - expected) > 0.01:
                 errors.append(
-                    f"example: effort_adjusted_value {eav} != aggregated_score * "
-                    f"effort_multiplier ({expected})"
+                    f"example: effort_adjusted_value {eav} != marginal-band EAV ({expected:.2f})"
                 )
+            display = example.get("effort_adjusted_value_display")
+            if display is not None and abs(float(display) - round(expected, 2)) > 0.001:
+                errors.append("example: effort_adjusted_value_display must be rounded marginal-band EAV")
 
 # 6 — reconciliation/enrichment assets (evaluation, questionnaire, docs, extra examples)
 evaluation = load("maturity/evaluation.yaml")
@@ -138,6 +153,10 @@ if sorted(lp) != ["L-1", "L-2", "L-3", "L-4", "L-5"]:
     errors.append("evaluation: level_points must cover L-1..L-5")
 if lp.get("L-0") not in (None, 0):
     errors.append("evaluation: L-0 (Not Assessed) must score 0 points")
+if not isinstance(sc.get("effort_adjusted_value"), dict):
+    errors.append("evaluation: effort_adjusted_value must define the normative marginal-band formula")
+elif "P_k(S) / M_k" not in sc["effort_adjusted_value"].get("formula", ""):
+    errors.append("evaluation: EAV formula must use marginal band points divided by band multipliers")
 questionnaire = load("maturity/assessment-questionnaire.yaml")
 qids = [c["id"] for sec in questionnaire.get("sections", []) for c in sec.get("criteria", [])]
 reg_ids = [str(c["id"]) for d in register.get("dimensions", []) for sd in d.get("sub_dimensions", []) for c in sd.get("criteria", [])]

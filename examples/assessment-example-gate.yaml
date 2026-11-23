@@ -20,6 +20,8 @@ computation:
   gating_band: level-2-structured     # 21-45
   org_band: level-2-structured        # weakest-link gate caps the band
   ao_stage: "Instrumented & Assisted" # ao_stage_by_ordinal[2]
-  effort_adjusted_value: "64 * 1.5 = 96.0"
+  effort_adjusted_value: 44.2666666667
+  effort_adjusted_value_display: 44.27
+  effort_adjusted_value_basis: "AO Autonomy Index 64 before weakest-link maturity-level cap; marginal-band contributions, not the capped L-2 multiplier"
 interpretation: "Index lands in Systematic, but root-cause (Orient) is still human-led, so the org band is capped at Structured — the gate makes the real blocker visible."
 evidence_confidence: Medium

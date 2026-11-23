@@ -148,6 +148,10 @@ The default dimension weights are Strategy 20%, Operations 20%, Technology 20%, 
 
 The effort-adjusted value is calculated as the AO Autonomy Index multiplied by the effort multiplier associated with the resolved band. It is a supplementary planning indicator, not a maturity score, a financial valuation or a measure of realized benefits.
 
+### Effort-adjusted value
+
+The effort-adjusted value is a supplementary index calculated from the unrounded AO Autonomy Index. Score points are allocated progressively across the canonical v2 bands; each band's marginal contribution is divided by that band's effort multiplier and summed. The full score is not multiplied by the multiplier of the resolved band. The weakest-link gate caps the reported maturity level but does not change the EAV input, which remains the pre-gate AO Autonomy Index.
+
 ## Evidence and scoring
 
 The model is designed for evidence-led assessment. A score should be supported by observable practices, operational records or other artifacts that demonstrate the capability within the declared scope.
