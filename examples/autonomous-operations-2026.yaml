@@ -3,10 +3,17 @@ model: dea:maturity-autonomous-operations
 version: 1.0.0
 description: Worked scoring example for the Autonomous Operations maturity model. Illustrative only —
   not a real organisation's assessment. Shows the AO Autonomy Index aggregation, canonical v2 band resolution
-  and the effort-adjusted value.
+  and the marginal-band effort-adjusted value.
 aggregated_score: 68
 resolved_band: level-3-systematic
-effort_adjusted_value: 170.0
+effort_adjusted_value: 45.8666666667
+effort_adjusted_value_display: 45.87
+effort_adjusted_value_contributions:
+- { band_id: level-1-emergent, marginal_points: 20, multiplier: 1.0, adjusted_contribution: 20.0 }
+- { band_id: level-2-structured, marginal_points: 25, multiplier: 1.5, adjusted_contribution: 16.6666666667 }
+- { band_id: level-3-systematic, marginal_points: 23, multiplier: 2.5, adjusted_contribution: 9.2 }
+- { band_id: level-4-adaptive, marginal_points: 0, multiplier: 4.0, adjusted_contribution: 0.0 }
+- { band_id: level-5-self-optimising, marginal_points: 0, multiplier: 6.0, adjusted_contribution: 0.0 }
 criterion_scores:
 - criterion: d1c1
   score: 60
