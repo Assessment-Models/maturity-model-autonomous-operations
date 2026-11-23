@@ -3,9 +3,10 @@
 # §15 contract handshake against the published contract suite at the pinned
 # dea-metamodel release.
 #
-# The `dea-metamodel-ref` input is an immutable pin (40-char SHA of the
-# dea-metamodel main tip at the time this repository was created). Mutable refs
-# (main/master/latest) are rejected by the reusable workflow's guard.
+# The reusable workflow is pinned to an immutable Assessment-Models/assessment-ci
+# commit. The dea-metamodel contract suite is independently pinned by SHA below.
+# Note: the reusable workflow currently checks out its validator repository at
+# `main` internally; that nested dependency remains an upstream pinning gap.
 name: Contract conformance (Level 2)
 
 on:
@@ -15,7 +16,7 @@ on:
 
 jobs:
   contract-conformance:
-    uses: Assessment-Models/assessment-ci/.github/workflows/contract-conformance.yml@main
+    uses: Assessment-Models/assessment-ci/.github/workflows/contract-conformance.yml@9c0fb2596f5a2d3bd0b33787feed1ef5861c909a
     with:
       dea-metamodel-ref: 1bbc08d08587931ea0b4fb9d1ee5cf00bd5852f0
       manifest-path: model.yaml
