@@ -77,7 +77,10 @@ touchpoints:
 ```
 
 The touchpoint artifact mirrors Operations' `tp-ops-x-autonomous-operations`
-with `tp-autonomous-operations-x-operations`. Its mapping remains directional:
+with `tp-autonomous-operations-x-operations`. The AO-side mirror pointer is
+present; the explicit reciprocal `mirrors` pointer in the Operations record is
+proposed in [maturity-model-operations#13](https://github.com/Assessment-Models/maturity-model-operations/pull/13)
+and remains pending merge. Its mapping remains directional:
 Operations reliability evidence feeds Autonomous Operations; Autonomous
 Operations retains ownership of the intent-driven closed-loop autonomy
 assessment. Both records remain explicitly draft against
