@@ -9,10 +9,12 @@ version: 0.1.0-draft
 status: draft
 metamodel_version: 1.0.0
 description: >-
-  Mirrored touchpoint record(s) formalizing this model's seam with the
+  Mirrored touchpoint record formalizing this model's seam with the
   Operations Maturity Model (dea:maturity-operations), per the Handshake &
-  Touchpoint Model (CR-AM-13 §5). Reciprocity: each record mirrors a
-  touchpoint declared in Assessment-Models/maturity-model-operations on main.
+  Touchpoint Model (CR-AM-13 §5). This AO-side record mirrors the Operations
+  touchpoint on main. The explicit reverse mirror pointer is proposed in
+  maturity-model-operations#13; automated semantic reciprocity validation is
+  not yet part of the current Level 3 validator.
 contract:
   id: maturity-touchpoint-contract
   version: 0.1.0-draft
