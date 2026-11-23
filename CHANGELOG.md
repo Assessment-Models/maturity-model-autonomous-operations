@@ -8,6 +8,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- CR-AM-15: replace aggregate-times-resolved-band EAV with marginal canonical v2 band contributions; calculate from the unrounded AO Autonomy Index before weakest-link level capping.
+- Update the evaluation contract, scoring examples, gate example, local validator and README to distinguish the AO Autonomy Index, gated maturity level and supplementary EAV.
+
+
+### Changed
+
 - BREAKING (blocked on upstream ratification of [dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214); do not merge before the renumbered canonical scale instance is released and CI pins are bumped): scale level ordinals renumbered to align one-to-one with canonical band ordinals. The five capability levels become L-1..L-5 (L-1 Absent .. L-5 Autonomous); L-0 is formalized as Not Assessed (zero points, not a capability level), absorbing the prior unassessed-criterion rule.
   - Mapping: old L-0 -> new L-1, old L-1 -> new L-2, old L-2 -> new L-3, old L-3 -> new L-4, old L-4 -> new L-5.
   - Unchanged: level definitions; level points (20/45/70/88/100); band ranges, names, and effort multipliers (`dea:maturity-bands-v2` v1.0.0); weights and weight profiles; gating criteria 4.1.1-4.1.4; the weakest-link gate; the confidence model.
