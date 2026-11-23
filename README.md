@@ -123,7 +123,7 @@ The five capability levels describe increasing maturity in the establishment, co
 
 | Level | Capability level | Canonical band | AO progression interpretation |
 |---|---|---|---|
-| L-1 | Absent/Adhoc | 1 · Emergent (0–20) | Manual and reactive; people perform the operational loop |
+| L-1 | Absent | 1 · Emergent (0–20) | Manual and reactive; people perform the operational loop |
 | L-2 | Initial | 2 · Structured (21–45) | Instrumented and assisted; systems provide observations, people retain orientation and decisions |
 | L-3 | Defined | 3 · Systematic (46–70) | Closed-loop automation within defined rules; people establish goals and handle exceptions |
 | L-4 | Automated | 4 · Adaptive (71–88) | Goal-driven autonomy; agents decide and act within guardrails, with human governance and audit |
