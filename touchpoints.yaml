@@ -18,6 +18,26 @@ contract:
   version: 0.1.0-draft
   source: { organization: technehub-labs, repository: dea-metamodel }
 
+handshakes:
+- id: hs-scoring-v2-bands
+  kind: scored-by
+  contract:
+    id: maturity-scale-contract
+    version: '1.0'
+  asset:
+    id: dea:maturity-bands-v2
+    organization: technehub-labs
+    repository: dea-metamodel
+    reference: v1.0.0
+- id: hs-touchpoint-contract-autonomous-operations
+  kind: touchpoints-declared-by
+  contract:
+    id: maturity-touchpoint-contract
+    version: 0.1.0-draft
+  source:
+    organization: technehub-labs
+    repository: dea-metamodel
+
 touchpoints:
 - id: tp-autonomous-operations-x-operations
   mirrors: tp-ops-x-autonomous-operations
