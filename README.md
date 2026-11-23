@@ -1,7 +1,7 @@
 # Autonomous Operations Maturity Model
 
 **Model ID:** `dea:maturity-autonomous-operations`  
-**Repository release:** `2.0.0` · **License:** MIT · **Conformance:** Structural
+**Repository release:** `2.0.1` · **License:** MIT · **Conformance:** Structural
 
 The Autonomous Operations Maturity Model assesses an enterprise's ability to operate value streams through **intent-driven, governed, closed-loop execution**. It examines how operational systems progress from human-led activity and isolated automation toward adaptive, increasingly autonomous operations in which systems can observe conditions, interpret them, decide within declared constraints, act, verify outcomes and improve from feedback.
 
