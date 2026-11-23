@@ -146,11 +146,13 @@ The current evaluation specification defines this sequence:
 
 The default dimension weights are Strategy 20%, Operations 20%, Technology 20%, Party 15%, Data 15% and Culture 10%. A separate `comms-provider` profile is available for communications providers and assigns 25% to Operations and 15% to Strategy; the remaining weights are unchanged. The selected profile must be recorded so that results can be interpreted and compared appropriately.
 
-The effort-adjusted value is calculated as the AO Autonomy Index multiplied by the effort multiplier associated with the resolved band. It is a supplementary planning indicator, not a maturity score, a financial valuation or a measure of realized benefits.
-
 ### Effort-adjusted value
 
-The effort-adjusted value is a supplementary index calculated from the unrounded AO Autonomy Index. Score points are allocated progressively across the canonical v2 bands; each band's marginal contribution is divided by that band's effort multiplier and summed. The full score is not multiplied by the multiplier of the resolved band. The weakest-link gate caps the reported maturity level but does not change the EAV input, which remains the pre-gate AO Autonomy Index.
+The effort-adjusted value (EAV) is calculated from the unrounded AO Autonomy Index before the weakest-link maturity-level cap. It is a supplementary index, not a maturity score or financial valuation.
+
+`EAV(S) = Σ [Pₖ(S) / Mₖ]`
+
+Score points are allocated progressively across the canonical v2 bands; each band's marginal contribution is divided by that band's effort multiplier and summed. The full index is not multiplied by the resolved band's multiplier. For example, an AO Autonomy Index of 68 yields EAV 45.87; an index of 64 yields EAV 44.27. A weakest-link gate may cap the reported maturity level without changing EAV.
 
 ## Evidence and scoring
 
