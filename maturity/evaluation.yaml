@@ -71,13 +71,16 @@ scoring:
     effort_multiplier: 6.0
     legacy_v1_name: Optimising
     ao_stage: Self-Improving Ecosystem
-  aggregation_rule: '1. Score each criterion on the scale level L-1..L-5 (maturity/scale.yaml); criterion points = the upper
-    edge of that level''s canonical v2 band (level_points: L-1=20, L-2=45, L-3=70, L-4=88, L-5=100). A criterion not assessed is scored L-0 (Not Assessed); it
-    scores 0 and lowers evidence-confidence; it never inflates the index. 2. Dimension score = unweighted mean of its criteria.
-    3. AO Autonomy Index = weighted mean of dimension scores (weight_profiles; default = dimension_weights). 4. Resolve the
-    index to a canonical v2 band (dea:maturity-bands-v2); the org band is that band, capped by the weakest-link gate: the
-    org band cannot exceed the band of the lowest IN-SCOPE gating criterion (register criteria with gating: true, 4.1.1-4.1.4);
-    scope-excluded criteria do not gate. 5. Calculate effort-adjusted value (EAV) from the unrounded AO Autonomy Index by allocating its score points progressively across the five canonical v2 bands and summing each marginal band's points divided by its effort multiplier. EAV is supplementary and is not changed by the weakest-link cap. 6. Report evidence-confidence (High/Medium/Low) alongside the result.'
+  aggregation_rule: >-
+    1. Score each criterion on the scale level L-1..L-5 (maturity/scale.yaml); criterion points equal the
+    upper edge of that level's canonical v2 band (L-1=20, L-2=45, L-3=70, L-4=88, L-5=100). A criterion
+    not assessed is scored L-0 (Not Assessed), scores 0 and lowers evidence-confidence; it never inflates
+    the index. 2. Dimension score = unweighted mean of its criteria. 3. AO Autonomy Index = weighted mean
+    of dimension scores (weight_profiles; default = dimension_weights). 4. Resolve the index to a canonical
+    v2 band; the org band is capped by the weakest-link gate and cannot exceed the band of the lowest
+    in-scope gating criterion. Scope-excluded criteria do not gate. 5. Calculate EAV from the unrounded AO
+    Autonomy Index using marginal band contributions. 6. Report evidence-confidence (High/Medium/Low)
+    alongside the result.
   dimension_weights:
     strategy: 0.2
     operations: 0.2
