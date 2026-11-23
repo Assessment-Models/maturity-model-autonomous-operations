@@ -5,7 +5,7 @@
 # =============================================================================
 id: dea:touchpoints-autonomous-operations-v1
 repo_id: maturity-model-autonomous-operations
-version: 0.1.1-draft
+version: 0.1.2-draft
 status: draft
 metamodel_version: 1.0.0
 description: >-
@@ -65,7 +65,7 @@ touchpoints:
   - ours: 4.1.1            # Detect Anomaly Event (gated criterion)
     theirs: OPS-D5-SD3-C07
   - ours: 4.1.2            # Demarcate and locate root-cause
-    theirs: OPS-D5-SD2-C03
+    theirs: OPS-D5-SD2-C05
   - ours: 3.1.3            # Intelligent Closed Loop Orchestration
     theirs: OPS-D5-SD4-C09
   - ours: 4.2.5            # SLO & Error Budget Management
