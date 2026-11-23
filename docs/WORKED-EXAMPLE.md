@@ -8,25 +8,25 @@ Scope: an illustrative whole-organization assessment using the default weight pr
 
 | Dimension | Score | Weight (default) | Contribution |
 |---|---|---|---|
-| Party | 60 | 0.15 | 9.00 |
+| Party | 56 | 0.15 | 8.40 |
 | Strategy | 72 | 0.20 | 14.40 |
 | Technology | 68 | 0.20 | 13.60 |
 | Operations | 74 | 0.20 | 14.80 |
 | Culture | 66 | 0.10 | 6.60 |
 | Data | 68 | 0.15 | 10.20 |
-| **AO Autonomy Index** | | | **68.6, recorded as 68** |
+| **AO Autonomy Index** | | | **68.00** |
 
 **Resolution:**
 
 1. Index 68 falls in 46-70: band **Systematic**, AO stage **Closed-Loop Automated**.
-2. Effort-adjusted value = 68 × 2.5 = **170.0**.
+2. EAV = 20/1.0 + 25/1.5 + 23/2.5 = **45.87**. This uses marginal band contributions, not the full index multiplied by the resolved band's multiplier.
 3. Gating criteria: this example demonstrates aggregation; in a real assessment, confirm all four gating criteria (4.1.1 to 4.1.4) score at or above the level implied by the resolved band before accepting it.
 
 **How to read it:**
 
 - The per-dimension profile is flat (60 to 74): no dimension is dragging. That shape matters more than the headline number. A 68 built on a flat profile is durable; a 68 built on Strategy 90 and Culture 30 is not.
 - **Reaching the next band** (Adaptive, 71-88) needs roughly 3 index points. Points get more expensive as you climb: the effort multiplier rises from 2.5× to 4.0×, and the model treats that as a planning signal, not a reason to stop.
-- The cheapest route to Adaptive here is the heaviest-weighted dimensions that score lowest among them (Party at 60, weighted 0.15), plus confirming the gating spine is comfortably at L-3 or above, so nothing caps the band.
+- The cheapest route to Adaptive here is the heaviest-weighted dimensions that score lowest among them (Party at 56, weighted 0.15), plus confirming the gating spine is comfortably at L-3 or above, so nothing caps the band.
 
 ## Example B: the weakest-link gate (examples/assessment-example-gate.yaml)
 
@@ -48,7 +48,7 @@ Scope: two value streams, order-to-activate and trouble-to-resolve, default weig
 1. The sampled Operations slice averages **63.75**; the illustrative weighted index across dimensions is **64**.
 2. Index 64 falls in 46-70: **band from index = Systematic**.
 3. Weakest-link gate: the lowest in-scope gating criterion is **4.1.2 (root-cause) at L-2**, which maps to the **Structured** band (21-45).
-4. The gate caps the result: **org band = Structured**, AO stage = **Instrumented & Assisted**, effort-adjusted value = 64 × 1.5 = **96.0**. Evidence confidence: Medium.
+4. The gate caps the result: **org band = Structured**, AO stage = **Instrumented & Assisted**, EAV = 20/1.0 + 25/1.5 + 19/2.5 = **44.27**. Evidence confidence: Medium.
 
 **How to read it:**
 
@@ -58,7 +58,7 @@ Scope: two value streams, order-to-activate and trouble-to-resolve, default weig
 
 ## Using your own results
 
-Every assessment report contains: the AO Autonomy Index, the resolved band and AO stage, the per-dimension profile, per-criterion levels with evidence references, confidence, the weight profile used, the gate outcome, the effort-adjusted value, gaps, and a roadmap to the next band. When you read yours:
+Every assessment report contains: the AO Autonomy Index, the resolved band and AO stage, the per-dimension profile, per-criterion levels with evidence references, confidence, the weight profile used, the gate outcome, the marginal-band EAV, gaps, and a roadmap to the next band. When you read yours:
 
 1. **Check the gate first.** If the gate caps you, the gating stage is the roadmap's first item, ahead of everything else.
 2. **Read the profile shape.** Spread (max minus min dimension) tells you about durability; the weighted contributions tell you where a point is cheapest.
