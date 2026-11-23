@@ -1,5 +1,12 @@
 # Changelog — maturity-model-autonomous-operations
 
+## [Unreleased]
+
+### Fixed
+
+- **CR-AM-13 Phase 2 reconciliation**: align the reciprocal Operations touchpoint's root-cause mapping to `OPS-D5-SD2-C05` (problem management), not `OPS-D5-SD2-C03` (incident command). Preserve the touchpoint's draft contract status.
+
+
 All notable changes to this repository are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
