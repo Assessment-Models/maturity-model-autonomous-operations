@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Align the Autonomous Operations documentation with the authoritative 157-criterion register, the L-0 sentinel plus L-1..L-5 capability scale, and the marginal-band EAV calculation.
+- Declare the existing reciprocal Operations touchpoint artifact through `model.yaml`; preserve the `derived-from` relationship and draft touchpoint-contract status.
+- Pin the model's reusable conformance workflows to immutable Assessment-Models commits; record the remaining nested validator checkout pinning gap.
+
 ### Changed
 
 - CR-AM-15: replace aggregate-times-resolved-band EAV with marginal canonical v2 band contributions; calculate from the unrounded AO Autonomy Index before weakest-link level capping.

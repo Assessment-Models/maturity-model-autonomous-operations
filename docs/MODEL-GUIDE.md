@@ -31,7 +31,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **Numbering note:** scale levels (what you score) align one-to-one with canonical bands (what the index resolves to): L-3 sits in band 3 Systematic. L-0 is Not Assessed: no evidence examined, 0 points, not a capability level. Results recorded before the renumbering ([dea-metamodel #214](https://github.com/technehub-labs/dea-metamodel/issues/214)) keep their index and band; only the per-criterion level label shifts by one.
 
-## Dimension 1: Party (7 sub-dimensions, 41 criteria)
+## Dimension 1: Party (7 sub-dimensions, 42 criteria)
 
 **What it asks:** when customers, partners, employees, and even smart things engage with you, how much of that engagement is proactive, personalized, and handled autonomously, and does the party experience it as effortless and trustworthy?
 
@@ -47,7 +47,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **What moves the score:** closed-loop personalization with consent records; autonomous support resolution at or above agent-assisted quality; machine-to-machine onboarding and healing with safety protocols.
 
-## Dimension 2: Strategy (5 sub-dimensions, 22 criteria)
+## Dimension 2: Strategy (5 sub-dimensions, 23 criteria)
 
 **What it asks:** is autonomous operations a managed investment with a value model, or a collection of pilots? Is there a vision, a business architecture linking intent to execution, financial management, governance, and sustainability targets applied to AO?
 
@@ -61,7 +61,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **What moves the score:** a value-operations framework mapping value propositions to operating units; benefits tracked to realized outcomes, not business-case promises; guardrails that are enforced, not written.
 
-## Dimension 3: Technology (4 sub-dimensions, 22 criteria)
+## Dimension 3: Technology (4 sub-dimensions, 23 criteria)
 
 **What it asks:** do you have the autonomy capabilities, architecture, resources, and lifecycle management to run agents as production assets?
 
@@ -69,7 +69,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **L-1 vs. L-5:** at L-1, automation is scripts on a scheduler with no owner. At L-5, multi-agent coordination runs with simulation-before-act for consequential decisions, and every autonomous action is logged and auditable.
 
-## Dimension 4: Operations (6 sub-dimensions, 25 criteria)
+## Dimension 4: Operations (6 sub-dimensions, 27 criteria)
 
 **What it asks:** are your operational flows actually closed loops? The sub-dimensions map to flow families: anomaly management, assurance, complaints, value uplift, net-zero, and fulfillment.
 
@@ -77,7 +77,7 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **What moves the score:** telemetry with service level objectives and error budgets; automated root-cause that shortens Orient; decisioning within declared rules; remediation executed without human dispatch for the declared blast radius.
 
-## Dimension 5: Culture (5 sub-dimensions, 19 criteria)
+## Dimension 5: Culture (5 sub-dimensions, 20 criteria)
 
 **What it asks:** does the organization absorb autonomous operations, or does it sponsor it on paper? Covers innovation practice, quality culture, culture management, alignment, and workplace enablement.
 
@@ -85,9 +85,9 @@ The four spine criteria (4.1.1 to 4.1.4) are **gating**: your organization's ban
 
 **Why it is weighted 0.10 but still matters:** culture rarely gates a single assessment, but a low Culture score predicts stalled adoption between assessments. Treat a weak culture score as a leading indicator, not a footnote.
 
-## Dimension 6: Data (5 sub-dimensions, 26 criteria)
+## Dimension 6: Data (5 sub-dimensions, 22 criteria)
 
-**What it asks:** can data be trusted end to end? Covers the data lifecycle, quality, security, governance, and value realization. It is the joint-heaviest criterion count with Party (26), because every OODA stage consumes data: a loop that observes bad data orients confidently in the wrong direction.
+**What it asks:** can data be trusted end to end? Covers the data lifecycle, quality, security, governance, and value realization. It is the , because every OODA stage consumes data: a loop that observes bad data orients confidently in the wrong direction.
 
 **What moves the score:** lifecycle management with lineage; quality measured at the point the loop consumes it; security and governance enforced as policy; value realization meaning data investments trace to loop outcomes.
 
