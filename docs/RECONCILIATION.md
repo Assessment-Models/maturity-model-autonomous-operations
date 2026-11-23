@@ -116,8 +116,11 @@ release/tag disposition is formally resolved.
   contract against the pinned metamodel contract suite. The manifest's typed
   touchpoint declaration is checked for safe repository-relative path and
   file existence by the shared validator.
-- Level 3 ecosystem validation remains responsible for registry resolution and
-  cross-repository relationship/touchpoint reciprocity.
+- Level 3 currently validates immutable registry references, dependency
+  resolution and registered model-manifest coherence. It does not yet validate
+  touchpoint-record semantics or reciprocal peer mappings. The mirrored
+  Operations records are declared, but automated reciprocity conformance remains
+  an outstanding ecosystem-validator capability.
 
 The reusable Level 2 workflow is now referenced by immutable commit SHA, as is
 the repository-standard reusable workflow. The contract workflow currently
