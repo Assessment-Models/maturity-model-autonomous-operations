@@ -86,11 +86,14 @@ artifact discovery and Level 2 path validation; it does not assert that the
 draft touchpoint-record contract has been published or that ecosystem
 reciprocity validation has passed.
 
-The model's contract handshake remains
+The model's primary contract handshake remains
 `maturity-scale-contract@1.0`, sourced from
-`technehub-labs/dea-metamodel`. The evaluation's band reference and dependency
-remain `dea:maturity-bands-v2@1.0.0`. These are distinct from the touchpoint
-artifact handshake and are not conflated.
+`technehub-labs/dea-metamodel`. The touchpoint artifact separately declares
+`hs-touchpoint-contract-autonomous-operations` against
+`maturity-touchpoint-contract@0.1.0-draft`; the scoring handshake declares
+`dea:maturity-bands-v2@1.0.0`. These are distinct handshake purposes and are
+not conflated. The touchpoint-contract handshake remains draft and is not
+represented as a published or fully conformant contract.
 
 ## 4. Registry and release identity
 
@@ -101,10 +104,9 @@ the registry's immutable commit reference is verifiable, but the version-to-tag
 release convention is not yet complete. Do not describe `v2.0.0` as a
 published Git tag until that tag is created and verified.
 
-The registry record's notes still contain historical v1.0.1 and pending-branch
-statements. Those should be reconciled in a separate registry change, preserving
-the existing immutable v2.0.0 commit reference until release/tag disposition is
-formally resolved.
+The registry record's historical notes are being reconciled in a coordinated
+registry change, preserving the existing immutable v2.0.0 commit reference until
+release/tag disposition is formally resolved.
 
 ## 5. Conformance and validation
 
